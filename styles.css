@@ -9,7 +9,7 @@ ul {
   overflow: hidden;
   background-color: #333;
   position: fixed;
-  margin-right: 5px;
+  margin-right: 0px;
   top: 0;
   left: 0;
   right: 0;
@@ -110,6 +110,7 @@ li a:hover {
           .Story{
             background-color: #333;
             color: white;
+            width: 60%;
             padding: 20px;
           }
           .School{
