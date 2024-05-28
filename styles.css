@@ -3,45 +3,42 @@ body{
     background-color: #555;
 }
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    margin-right: 5px;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000; /* Přidání z-indexu */
-  }
-  
-  li {
-    float: right;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 1s;
-  }
-  .first{
-    color: crimson;
-    float: left;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  li:first-child {
-    float: left; /* První prvek zarovnejte vlevo */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  margin-right: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Přidání z-indexu */
 }
-  
-  li a:hover {
-    background-color: #111;
 
-  }
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 1s;
+}
+.first{
+  color: crimson;
+  float: right;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+li a:hover {
+  background-color: #111;
+
+}
   
   html, body, section {
     block-size: 100%;
