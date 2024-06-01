@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Richard M.</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#Home" class="first">RM</a></li>
-            <li><a href="#AboutMe">O mě</a></li>
-            <li><a href=#Programs>Programy</a></li>
-            <li><a href=#Works>Práce</a></li>
-            <li><a href=#Contact>Kontakt</a></li>
-        </ul>
-    </nav>
+    <script>
+        $(document).ready(function() {
+      $("nav div").click(function() {
+        $("nav ul").slideToggle();
+      });
+    });
+          </script>
+  </head>
+  <body>
+      <nav>
+        <div>&#x2630;</div>
+          <ul>
+              <li><a href="#Home" class="first">RM</a></li>
+              <li><a href="#AboutMe">O mě</a></li>
+              <li><a href="#Programs">Programy</a></li>
+              <li><a href="#Works">Práce</a></li>
+              <li><a href="#Contact">Kontakt</a></li>
+          </ul>
+      </nav>
     <main>
         <section id="Home">
-        <div class="Intro">
+            <img id="Myself" src="Ich.jpg" alt="ich">
+            <div class="Intro">
             <h1>Kdo jsem já?</h1>
                 <p>Vítejte, moje jméno je Richard Mück</p>
                 
@@ -28,9 +38,8 @@
                 
                 <p>Mezi mé klíčové dovednosti patří webové stránky, Audiovizuální tvorba a drobné programování. </p>
                 
-                <p>Děkuji za návštěvu a těším se na budoucí spolupráci!</p>        
+                <p>Děkuji za návštěvu!</p>        
         </div>
-            <img id="Myself" src="Ich.jpg" alt="ich">
             
             
         </section>

@@ -1,375 +1,665 @@
 body{
-    font-size: 25px;
-    background-color: #555;
+  font-size: 25px;
+  background-color: #555;
+  font-family:'Times New Roman', Times, serif;
 }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  margin-right: 0px;
-  top: 0;
+
+nav{
+  background-color:#333 ; 
+  position: fixed; 
+  top:0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Přidání z-indexu */
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  transition: 1s;
-}
+  z-index: 1000; /* Přidání z-indexu */}
+nav div {
+  display:none}
+nav *{
+  font-weight: bold;
+  display:block; 
+  margin:0; 
+  padding:0}
+nav ul {
+  display:flex;}
+nav ul li {
+  width:100%; 
+  text-align:center}
+nav a {
+  line-height:50px; 
+  color:crimson; 
+  text-decoration:none; 
+  padding: 9px 16px;
+  transition: background, color 0.5s;}
+nav a:hover{
+  background:#222; 
+  color:white;
+  transition: 0.5s}
 .first{
+  background-color: crimson;
+  color: #222;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+html, body, section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section{
+  scroll-snap-align: start;
+scroll-snap-stop: always;
+margin-top: 200px;
+padding-top: 8.5vh;
+  min-height: 90vh;
+  max-height: 90vh;
+}
+
+h1{
   color: crimson;
-  float: right;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 20px;
+  font-size: 2em;
 }
 
-li a:hover {
-  background-color: #111;
-
+h2{
+  padding-left: 40px;
+  font-size: 1.5em;
 }
+
+p{
+  padding-left: 60px;
+}
+div{
+  min-height: 80%;
+  max-height: 80%;
+}
+button{
+border-radius: 8px;
+border: 2px solid white;
+background: transparent;
+width: 50%;
+padding: 30px;
+color: white;
+font-size: 1em;
+transition: 0.5s;
+font-family:'Times New Roman', Times, serif;
+}
+button:hover{
+transform: scale(3, 3);
+background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(255, 0, 0)); }
+
+
+#Home{
+  margin-top: 0px;
+  display: flex;
+    }
+    .Intro{
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      width: 40%;
+    }
   
-  html, body, section {
-    block-size: 100%;
+    #Myself{
+      width: 60%;
+      filter: grayscale(100);
+    }
+#AboutMe{
+  margin-top: 200px;
+      display: flex;
+        }
+        .Story{
+          background-color: #333;
+          color: white;
+          width: 60%;
+          padding: 20px;
+        }
+        .School{
+          color: #333;
+          width: 60%;
+          padding: 20px;
+        }
+          .School p{
+              margin-left: 60px;
+          }
+          #AboutMe{
+      display: flex;
+        }
+        .Story{
+          background-color: #333;
+          color: white;
+          padding: 20px;
+        }
+        .School{
+          color: #222;
+          width: 60%;
+          padding: 20px;
+        }
+          .School p{
+              margin-left: 60px;
+          }
+#Programs{
+  display: flex;
   }
-  
-  html {
-    scroll-snap-type: y mandatory;
-  }
-
-  section{
-    scroll-snap-align: start;
-  scroll-snap-stop: always;
-  padding-top: 8.5vh;
-    min-height: 90vh;
-    max-height: 90vh;
-  }
-  
- h1{
-    color: crimson;
-    padding-left: 20px;
-    font-size: 2em;
- }
- 
- h2{
-    padding-left: 40px;
-    font-size: 1.5em;
- }
-
- p{
-    padding-left: 60px;
- }
- div{
-    min-height: 80%;
-    max-height: 80%;
- }
- button{
-  border-radius: 8px;
-  border: 2px solid white;
-  background: transparent;
-  width: 50%;
-  padding: 30px;
-  color: white;
-  font-size: 1em;
-  transition: 0.5s;
- }
- button:hover{
-  transform: scale(3, 3);
-  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(255, 0, 0)); }
-
-
- #Home{
-    margin-top: 0px;
-    display: flex;
+      .Programing{
+          background-image: url(Code.gif);
+          background-position: center;
+          color: white;
+          padding: 20px;
+          width: 25%;
+          transition: 0.5s;
       }
-      .Intro{
-        background-color: #333;
-        color: white;
-        padding: 20px;
+      .Programing p {
+        display: none;
+    }
+      .Programing:hover{
+        background-image: none;
+        background-color: crimson;
         width: 40%;
       }
+      .Programing:hover p {
+        display: block;
+    }
+      .Web{
+          background-image: url(Web.gif);
+          background-position: center;
+          color: white;
+          padding: 20px;
+          width: 25%;
+          transition: 0.5s;
+      }
+      .Web p {
+        display: none;
+    }
+      .Web:hover{
+        background-image: none;
+        background-color: crimson;
+        width: 40%;
+      }
+      .Web:hover p {
+        display: block;
+    }
+      .Edit{
+          background-image: url(Audiovis.gif);
+          background-position: center;
+          color: white;
+          padding: 20px;
+          width: 25%;
+          transition: 0.5s;
+          }
+          .Edit p {
+            display: none;
+        }
+          .Edit:hover{
+            background-image: none;
+            background-color: crimson;
+            width: 40%;
+          }
+          .Edit:hover p {
+            display: block;
+        }
+#Works{
+display: flex;
+      }
+      .Audiovizual {
+        padding: 20px;
+        width: 30%;
+        background:url(Audio.gif);
+        background-position: center;
+        color: white;
+        transition: 0.5s;
+        position: relative;
+    }
     
-      #Myself{
-        width: 60%;
-        filter: grayscale(100);
+    .Audiovizual p, .Audiovizual button {
+        display: none;
+    }
+    
+    .Audiovizual:hover {
+        width: 50%;
+    }
+    
+    .Audiovizual:hover p, .Audiovizual:hover button {
+        display: block;
+    }
+    .Audiovizual button {
+      position: absolute; 
+      bottom: 30px; 
+      left: 50%; 
+      transform: translateX(-50%);
+  }
+      .Websites{
+        padding: 20px;
+        width: 30%;
+        background: url(Cursor.gif);
+        background-position: center;
+        color: white;
+        transition: 0.5s;
+        position: relative;
+      }
+      .Websites p, .Websites button {
+        display: none;
+    }
+        .Websites:hover{
+            width: 50%;
+        }
+        .Websites:hover p, .Websites:hover button {
+          display: block;
+      }
+      .Websites button {
+        position: absolute; 
+        bottom: 30px; 
+        left: 50%; 
+        transform: translateX(-50%);
+    }
+      .Others{
+        padding: 30px;
+        width: 30%;
+        background:url(Certif.gif);
+        background-position: center;
+        color: white;
+        transition: 0.5s;
+        position: relative;
+      }
+      .Others p, .Others button {
+        display: none;
+    }
+    .Others button {
+      position: absolute; 
+      bottom: 30px; 
+      left: 50%; 
+      transform: translateX(-50%);
+  }
+        .Others:hover{
+            width: 50%;
+        }
+        .Others:hover p, .Others:hover button {
+          display: block;
+      }
+      body {
+        font-size: 25px;
+        background-color: #555;
+      }
+      
+      
+      
+#Contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        padding-top: 9vh;
+      min-height: 85vh;
+      max-height: 85vh;
+      }
+      
+      #Contact h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .Socials {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .Socials svg{
+
+        margin-bottom: 10px;
+        width: 50px; /* Zvýšení šířky SVG ikon */
+        height: 50px; /* Zvýšení výšky SVG ikon */
+        fill: white;
+      }
+      .Socials a {
+        text-decoration: none; /* Zruší podtržení textu */
+        color: inherit; /* Zachová barvu textu */
+    }
+      .Socials a div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        color: white;
+        padding: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .Socials a#LinkedIn div {
+        background-color: #0077B5;
+        border: 4px solid #0077B5;
+      }
+      .Socials a#LinkedIn div:hover {
+        background-color: transparent;
+      }
+
+      .Socials a#Github div {
+        background-color: #333;
+        border: 4px solid #333;
+      }
+      .Socials a#Github div:hover {
+        background-color: transparent;
+      }
+
+      
+      .Socials p {
+        margin: 0;
+      }
+      
+      .Other {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #333;
+        width: 100%;
+        padding: 40px;
+        color: white;
+        margin-top: auto;
+      }
+      
+      .Other div {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      
+      .Other h2 {
+        margin: 0;
+        color: crimson;
+        font-weight: bold;
+      }
+      
+      .Other p {
+        margin: 20px 0 0;
+      }
+      @media only screen and (max-width: 900px) {
+        body{
+          font-size: 20px;
+        }
+        nav ul {display:block;}
+nav div {display:block; color:white; font-size:3em; text-align:center}
+        section{
+          scroll-snap-align: start;
+        scroll-snap-stop: always;
+        padding-top: 8.5vh;
+          min-height: 90vh;
+          max-height: 90vh;
+          height: 40vh;
+        }
+#Home {
+          margin-top: 0px;
+          display: flex;
+          flex-direction: column; /* Uspořádání elementů svisle */
+          align-items: center; /* Zarovnání na střed */
+          position: relative; /* Přidáno pro kontext pro absolutní pozicování */
+      }
+      
+      #Myself {
+          justify-self: center;
+          width: 100%;
+          height: 40%;
+          filter: grayscale(100);
+          position: relative; /* Relativní pozicování */
+          z-index: 2; /* Vyšší z-index než .Intro */
+      }
+      
+      .Intro {
+          background-color: #333;
+          color: white;
+          width: 95%;
+          bottom: 0vh;
+          position: relative; /* Aby se mohla uplatnit pozice .Intro */
+          z-index: 1; /* Nastavení z-indexu */
       }
 #AboutMe{
-        display: flex;
-          }
-          .Story{
-            background-color: #333;
-            color: white;
-            width: 60%;
-            padding: 20px;
-          }
-          .School{
-            color: #333;
-            width: 60%;
-            padding: 20px;
-          }
-            .School p{
-                margin-left: 60px;
-            }
-            #AboutMe{
-        display: flex;
-          }
-          .Story{
-            background-color: #333;
-            color: white;
-            padding: 20px;
-          }
-          .School{
-            color: #222;
-            width: 60%;
-            padding: 20px;
-          }
-            .School p{
-                margin-left: 60px;
-            }
-#Programs{
-    display: flex;
-    }
-        .Programing{
-            background-image: url(Code.gif);
-            background-position: center;
-            color: white;
-            padding: 20px;
-            width: 25%;
-            transition: 0.5s;
-        }
-        .Programing p {
-          display: none;
-      }
-        .Programing:hover{
-          background-image: none;
-          background-color: crimson;
-          width: 40%;
-        }
-        .Programing:hover p {
-          display: block;
-      }
-        .Web{
-            background-image: url(Web.gif);
-            background-position: center;
-            color: white;
-            padding: 20px;
-            width: 25%;
-            transition: 0.5s;
-        }
-        .Web p {
-          display: none;
-      }
-        .Web:hover{
-          background-image: none;
-          background-color: crimson;
-          width: 40%;
-        }
-        .Web:hover p {
-          display: block;
-      }
-        .Edit{
-            background-image: url(Audiovis.gif);
-            background-position: center;
-            color: white;
-            padding: 20px;
-            width: 25%;
-            transition: 0.5s;
-            }
-            .Edit p {
-              display: none;
-          }
-            .Edit:hover{
-              background-image: none;
-              background-color: crimson;
-              width: 40%;
-            }
-            .Edit:hover p {
-              display: block;
-          }
- #Works{
-  display: flex;
-        }
-        .Audiovizual {
-          padding: 20px;
-          width: 30%;
-          background:url(Audio.gif);
-          background-position: center;
-          color: white;
-          transition: 0.5s;
-          position: relative;
-      }
-      
-      .Audiovizual p, .Audiovizual button {
-          display: none;
-      }
-      
-      .Audiovizual:hover {
-          width: 50%;
-      }
-      
-      .Audiovizual:hover p, .Audiovizual:hover button {
-          display: block;
-      }
-      .Audiovizual button {
-        position: absolute; 
-        bottom: 30px; 
-        left: 50%; 
-        transform: translateX(-50%);
-    }
-        .Websites{
-          padding: 20px;
-          width: 30%;
-          background: url(Cursor.gif);
-          background-position: center;
-          color: white;
-          transition: 0.5s;
-          position: relative;
-        }
-        .Websites p, .Websites button {
-          display: none;
-      }
-          .Websites:hover{
-              width: 50%;
-          }
-          .Websites:hover p, .Websites:hover button {
-            display: block;
-        }
-        .Websites button {
-          position: absolute; 
-          bottom: 30px; 
-          left: 50%; 
-          transform: translateX(-50%);
-      }
-        .Others{
-          padding: 30px;
-          width: 30%;
-          background:url(Certif.gif);
-          background-position: center;
-          color: white;
-          transition: 0.5s;
-          position: relative;
-        }
-        .Others p, .Others button {
-          display: none;
-      }
-      .Others button {
-        position: absolute; 
-        bottom: 30px; 
-        left: 50%; 
-        transform: translateX(-50%);
-    }
-          .Others:hover{
-              width: 50%;
-          }
-          .Others:hover p, .Others:hover button {
-            display: block;
-        }
-        body {
-          font-size: 25px;
-          background-color: #555;
-        }
-        
-        
-        
+              display: grid;
+                }
+                .Story{
+                  background-color: #333;
+                  color: white;
+                  width: 92.5%;
+                  padding: 30px;
+                }
+                
+                .School{
+                  color: #333;
+                  width: 92.5%;
+                  padding: 0px;
+                  padding-top: 0px;
+                }
+                  .School p{
+                      margin-left: 15px;
+                  }
+#Programs{               
+  display: grid;
+                    }
+                        .Programing{
+                            background-image: url(Code.gif);
+                            background-position: center;
+                            color: white;
+                            padding: 30px;
+                            width: 92.5%;
+                        }
+                        .Programing p {
+                          display: none;
+                      }
+                        .Programing:hover{
+                          background-image: none;
+                          background-color: crimson;
+                          width: 92.5%;
+                        }
+                        .Programing:hover p {
+                          display: block;
+                      }
+                        .Web{
+                            background-image: url(Web.gif);
+                            background-position: center;
+                            color: white;
+                            padding: 30px;
+                            width: 92.5%;
+                        }
+                        .Web p {
+                          display: none;
+                      }
+                        .Web:hover{
+                          background-image: none;
+                          background-color: crimson;
+                          width: 92.5%;
+                        }
+                        .Web:hover p {
+                          display: block;
+                      }
+                        .Edit{
+                            background-image: url(Audiovis.gif);
+                            background-position: center;
+                            color: white;
+                            padding: 30px;
+                            width: 92.5%;
+                            }
+                            .Edit p {
+                              display: none;
+                          }
+                            .Edit:hover{
+                              background-image: none;
+                              background-color: crimson;
+                              width: 92.5%;
+                            }
+                            .Edit:hover p {
+                              display: block;
+                          }
+#Works{
+                            display: grid;
+                                  }
+                                  .Audiovizual {
+                                    padding: 30px;
+                                    width: 92.5%;
+                                    background:url(Audio.gif);
+                                    background-position: center;
+                                    color: white;
+                                    transition: 0.5s;
+                                    position: relative;
+                                }
+                                
+                                .Audiovizual p, .Audiovizual button {
+                                    display: none;
+                                }
+                                
+                                .Audiovizual:hover {
+                                  width: 92.5%;
+                                }
+                                
+                                .Audiovizual:hover p, .Audiovizual:hover button {
+                                    display: block;
+                                }
+                                .Audiovizual button {
+                                  position: absolute; 
+                                  bottom: 30px; 
+                                  left: 70%;
+                                  transform: translateX(-50%);
+                              }
+                                  .Websites{
+                                    padding: 30px;
+                                    width: 92.5%;
+                                    background: url(Cursor.gif);
+                                    background-position: center;
+                                    color: white;
+                                    transition: 0.5s;
+                                    position: relative;
+                                  }
+                                  .Websites p, .Websites button {
+                                    display: none;
+                                }
+                                    .Websites:hover{
+                                      width: 92.5%;
+                                    }
+                                    .Websites:hover p, .Websites:hover button {
+                                      display: block;
+                                  }
+                                  .Websites button {
+                                    position: absolute; 
+                                    bottom: 30px; 
+                                    left: 70%; 
+                                    transform: translateX(-50%);
+                                }
+                                  .Others{
+                                    padding: 30px;
+                                    width: 92.5%;
+                                    background:url(Certif.gif);
+                                    background-position: center;
+                                    color: white;
+                                    transition: 0.5s;
+                                    position: relative;
+                                  }
+                                  .Others p, .Others button {
+                                    display: none;
+                                }
+                                .Others button {
+                                  position: absolute; 
+                                  bottom: 30px; 
+                                  left: 70%; 
+                                  transform: translateX(-50%);
+                              }
+                                    .Others:hover{
+                                      width: 92.5%;
+                                    }
+                                    .Others:hover p, .Others:hover button {
+                                      display: block;
+                                  }
+                                  
 #Contact {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 40px;
-          padding-top: 8.5vh;
-        min-height: 85vh;
-        max-height: 85vh;
-        }
-        
-        #Contact h1 {
-          text-align: center;
-          margin-bottom: 20px;
-        }
-        
-        .Socials {
-          display: flex;
-          justify-content: space-around;
-          width: 100%;
-          margin-bottom: 30px;
-        }
-        .Socials svg{
-
-          margin-bottom: 10px;
-          width: 50px; /* Zvýšení šířky SVG ikon */
-          height: 50px; /* Zvýšení výšky SVG ikon */
-          fill: white;
-        }
-        .Socials a {
-          text-decoration: none; /* Zruší podtržení textu */
-          color: inherit; /* Zachová barvu textu */
-      }
-        .Socials a div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          width: 120px;
-          height: 120px;
-          color: white;
-          padding: 20px;
-          transition: background-color 0.3s ease;
-        }
-
-        .Socials a#LinkedIn div {
-          background-color: #0077B5;
-          border: 4px solid #0077B5;
-        }
-        .Socials a#LinkedIn div:hover {
-          background-color: transparent;
-        }
-
-        .Socials a#Github div {
-          background-color: #333;
-          border: 4px solid #333;
-        }
-        .Socials a#Github div:hover {
-          background-color: transparent;
-        }
-
-        
-        .Socials p {
-          margin: 0;
-        }
-        
-        .Other {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background-color: #333;
-          width: 100%;
-          padding: 40px;
-          color: white;
-          margin-top: auto;
-        }
-        
-        .Other div {
-          margin-bottom: 10px;
-          text-align: center;
-        }
-        
-        .Other h2 {
-          margin: 0;
-          color: crimson;
-          font-weight: bold;
-        }
-        
-        .Other p {
-          margin: 20px 0 0;
-        }
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    padding: 40px;
+                                    margin-top: 100px;
+                                    min-height: 40vh;
+                                    max-height: 40vh;
+                                  }
+                                  
+                                  #Contact h1 {
+                                    text-align: center;
+                                    margin-bottom: 20px;
+                                  }
+                                  
+                                  .Socials {
+                                    display: flex;
+                                    justify-content: space-around;
+                                    width: 100%;
+                                    height: 50vh;
+                                    margin-bottom: 30px;
+                                  }
+                                  .Socials svg{
+                            
+                                    margin-bottom: 10px;
+                                    width: 50px; /* Zvýšení šířky SVG ikon */
+                                    height: 50px; /* Zvýšení výšky SVG ikon */
+                                    fill: white;
+                                  }
+                                  .Socials a {
+                                    text-decoration: none; /* Zruší podtržení textu */
+                                    color: inherit; /* Zachová barvu textu */
+                                }
+                                  .Socials a div {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 50%;
+                                    width: 30vh;
+                                    height: 30vh;
+                                    color: white;
+                                    padding: 20px;
+                                    transition: background-color 0.3s ease;
+                                  }
+                            
+                                  .Socials a#LinkedIn div {
+                                    background-color: #0077B5;
+                                    border: 4px solid #0077B5;
+                                  }
+                                  .Socials a#LinkedIn div:hover {
+                                    background-color: transparent;
+                                  }
+                            
+                                  .Socials a#Github div {
+                                    background-color: #333;
+                                    border: 4px solid #333;
+                                  }
+                                  .Socials a#Github div:hover {
+                                    background-color: transparent;
+                                  }
+                            
+                                  
+                                  .Socials p {
+                                    margin: 0;
+                                  }
+                                  
+                                  .Other {
+                                    display: grid;
+                                    flex-direction: none;
+                                    align-items: none;
+                                    background-color: #333;
+                                    width: 100%;
+                                    padding: 40px;
+                                    color: white;
+                                    margin-top: none;
+                                  }
+                                  
+                                  .Other div {
+                                    margin-bottom: 10px;
+                                    text-align: center;
+                                  }
+                                  
+                                  .Other h2 {
+                                    margin: 0;
+                                    color: crimson;
+                                    font-weight: bold;
+                                  }
+                                  
+                                  .Other p {
+                                    margin: 20px 0 0;
+                                  }
+    }
