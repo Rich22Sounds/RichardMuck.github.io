@@ -4,40 +4,100 @@ body{
   font-family:'Times New Roman', Times, serif;
 }
 
-nav{
-  background-color:#333 ; 
-  position: fixed; 
-  top:0;
+nav {
+  background-color: transparent;
+  color: #fff;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000; /* Přidání z-indexu */}
-nav div {
-  display:none}
-nav *{
-  font-weight: bold;
-  display:block; 
-  margin:0; 
-  padding:0}
-nav ul {
-  display:flex;}
-nav ul li {
-  width:100%; 
-  text-align:center}
-nav a {
-  line-height:50px; 
-  color:crimson; 
-  text-decoration:none; 
-  padding: 9px 16px;
-  transition: background, color 0.5s;}
-nav a:hover{
-  background:#222; 
-  color:white;
-  transition: 0.5s}
-.first{
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  border-bottom: 2px solid crimson;
+}
+
+.logo {
+  display: block;
+  color: #333;
   background-color: crimson;
-  color: #222;
-  padding-left: 400px;
-  padding-right: 400px;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 10px 20px;
+  padding-left: 30%;
+  padding-right: 30%;
+  width: 100%;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.5s, color 0.5s;
+}
+.logo:hover {
+  color: white;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.nav li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav li:first-child {
+  border-left: none;
+}
+
+.nav li:last-child {
+  border-right: none;
+}
+
+.nav a {
+  color: crimson;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  transition: background 0.5s, color 0.5s;
+}
+
+.nav a:hover {
+  background: #222;
+  color: white;
+  transition: 0.5s;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+.overlay {
+  display: none;
+}
+
+.hamburger .bar1, .hamburger .bar2, .hamburger .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
 }
 
 html, body, section {
@@ -71,13 +131,15 @@ h2{
 p{
   padding-left: 60px;
 }
+strong{
+  color: crimson;
+}
 div{
   min-height: 80%;
   max-height: 80%;
 }
 button{
-border-radius: 8px;
-border: 2px solid white;
+border: 2px solid crimson;
 background: transparent;
 width: 50%;
 padding: 30px;
@@ -87,8 +149,8 @@ transition: 0.5s;
 font-family:'Times New Roman', Times, serif;
 }
 button:hover{
-transform: scale(3, 3);
-background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(255, 0, 0)); }
+background-color: crimson;
+}
 
 
 #Home{
@@ -380,20 +442,115 @@ display: flex;
         body{
           font-size: 20px;
         }
-        nav ul {display:block;}
-nav div {display:block; color:white; font-size:3em; text-align:center}
+        .nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+      }
+      h1{
+        color: crimson;
+        padding-left: 10px;
+        font-size: 2em;
+      }
+      
+      h2{
+        padding-left: 40px;
+        font-size: 1.5em;
+      }
+      
+      p{
+        padding-left: 30px;
+      }
+      .logo{
+        padding-left: 20%;
+        padding-right: 20%;
+      }
+      .nav li {
+          text-align: center;
+          width: 100%;
+          border-left: none;
+          border-right: none;
+          border-top: 2px solid crimson;
+          border-bottom: 2px solid crimson;
+      }
+      .hamburger {
+        display: inline-block;
+        cursor: pointer;
+      }
+      
+      .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+      
+      .change .bar1 {
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+      
+      .change .bar2 {
+        opacity: 0;
+      }
+      
+      .change .bar3 {
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+      .overlay {
+        display: none;
+        height: 100%; /* Výška na 100% */
+        width: 100%; /* Šířka na 100% */
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9); /* Poloprůhledné pozadí */
+        overflow-x: hidden; /* Skrytí vodorovného scrollbar */
+        overflow-y: hidden; /* Skrytí svislého scrollbar */
+        transition: 0.5s;
+        z-index: 1000;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: 'Spectral', serif;
+        color: #fff;
+        display: block;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #818181;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+      }
         section{
           scroll-snap-align: start;
         scroll-snap-stop: always;
         padding-top: 8.5vh;
-          min-height: 90vh;
-          max-height: 90vh;
+          min-height: 85vh;
+          max-height: 85vh;
           height: 40vh;
         }
 #Home {
           margin-top: 0px;
-          display: flex;
-          flex-direction: column; /* Uspořádání elementů svisle */
+          display: block;
           align-items: center; /* Zarovnání na střed */
           position: relative; /* Přidáno pro kontext pro absolutní pozicování */
       }
@@ -401,7 +558,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
       #Myself {
           justify-self: center;
           width: 100%;
-          height: 40%;
+          height: 45%;
           filter: grayscale(100);
           position: relative; /* Relativní pozicování */
           z-index: 2; /* Vyšší z-index než .Intro */
@@ -410,24 +567,30 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
       .Intro {
           background-color: #333;
           color: white;
-          width: 95%;
+          width: 100%;
           bottom: 0vh;
+          padding: 0px;
+          padding-top: 20px;
+          padding-bottom: 0px;
           position: relative; /* Aby se mohla uplatnit pozice .Intro */
           z-index: 1; /* Nastavení z-indexu */
       }
 #AboutMe{
-              display: grid;
+              justify-content: center;
+
                 }
                 .Story{
                   background-color: #333;
                   color: white;
-                  width: 92.5%;
-                  padding: 30px;
+                  width: 100%;
+                  padding: 0px;
+                  padding-bottom: 100px;
+                  height: 200%;
                 }
                 
                 .School{
                   color: #333;
-                  width: 92.5%;
+                  width: 50%;
                   padding: 0px;
                   padding-top: 0px;
                 }
@@ -441,8 +604,9 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                             background-image: url(Code.gif);
                             background-position: center;
                             color: white;
-                            padding: 30px;
-                            width: 92.5%;
+                            padding-left: 0px;
+                            padding-right: 0px;
+                            width: 100%;
                         }
                         .Programing p {
                           display: none;
@@ -450,7 +614,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                         .Programing:hover{
                           background-image: none;
                           background-color: crimson;
-                          width: 92.5%;
+                          width: 100%;
                         }
                         .Programing:hover p {
                           display: block;
@@ -459,8 +623,9 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                             background-image: url(Web.gif);
                             background-position: center;
                             color: white;
-                            padding: 30px;
-                            width: 92.5%;
+                            padding-left: 0px;
+                            padding-right: 0px;
+                            width: 100%;
                         }
                         .Web p {
                           display: none;
@@ -468,7 +633,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                         .Web:hover{
                           background-image: none;
                           background-color: crimson;
-                          width: 92.5%;
+                          width: 100%;
                         }
                         .Web:hover p {
                           display: block;
@@ -477,8 +642,9 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                             background-image: url(Audiovis.gif);
                             background-position: center;
                             color: white;
-                            padding: 30px;
-                            width: 92.5%;
+                            padding-left: 0px;
+                            padding-right: 0px;
+                            width: 100%;
                             }
                             .Edit p {
                               display: none;
@@ -486,7 +652,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                             .Edit:hover{
                               background-image: none;
                               background-color: crimson;
-                              width: 92.5%;
+                              width: 100%;
                             }
                             .Edit:hover p {
                               display: block;
@@ -495,8 +661,9 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                             display: grid;
                                   }
                                   .Audiovizual {
-                                    padding: 30px;
-                                    width: 92.5%;
+                                    padding-left: 0px;
+                                    padding-right: 0px;
+                                    width: 100%;
                                     background:url(Audio.gif);
                                     background-position: center;
                                     color: white;
@@ -509,7 +676,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                 }
                                 
                                 .Audiovizual:hover {
-                                  width: 92.5%;
+                                  width: 100%;
                                 }
                                 
                                 .Audiovizual:hover p, .Audiovizual:hover button {
@@ -522,8 +689,9 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                   transform: translateX(-50%);
                               }
                                   .Websites{
-                                    padding: 30px;
-                                    width: 92.5%;
+                                    padding-left: 0px;
+                                    padding-right: 0px;
+                                    width: 100%;
                                     background: url(Cursor.gif);
                                     background-position: center;
                                     color: white;
@@ -534,7 +702,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                     display: none;
                                 }
                                     .Websites:hover{
-                                      width: 92.5%;
+                                      width: 100%;
                                     }
                                     .Websites:hover p, .Websites:hover button {
                                       display: block;
@@ -546,13 +714,16 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                     transform: translateX(-50%);
                                 }
                                   .Others{
-                                    padding: 30px;
-                                    width: 92.5%;
+                                    padding-left: 0px;
+                                    padding-right: 0px;
+                                    width: 100%;
                                     background:url(Certif.gif);
                                     background-position: center;
                                     color: white;
                                     transition: 0.5s;
                                     position: relative;
+                                    flex-direction: none;
+                                    align-items: none;
                                   }
                                   .Others p, .Others button {
                                     display: none;
@@ -564,7 +735,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                   transform: translateX(-50%);
                               }
                                     .Others:hover{
-                                      width: 92.5%;
+                                      width: 100%;
                                     }
                                     .Others:hover p, .Others:hover button {
                                       display: block;
@@ -590,7 +761,7 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                     justify-content: space-around;
                                     width: 100%;
                                     height: 50vh;
-                                    margin-bottom: 30px;
+                                    margin-bottom: 0px;
                                   }
                                   .Socials svg{
                             
@@ -609,10 +780,10 @@ nav div {display:block; color:white; font-size:3em; text-align:center}
                                     align-items: center;
                                     justify-content: center;
                                     border-radius: 50%;
-                                    width: 30vh;
-                                    height: 30vh;
+                                    width: 20vh;
+                                    height: 1vh;
                                     color: white;
-                                    padding: 20px;
+                                    padding: 0px;
                                     transition: background-color 0.3s ease;
                                   }
                             

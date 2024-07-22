@@ -6,37 +6,43 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Richard M.</title>
-    <script>
-        $(document).ready(function() {
-      $("nav div").click(function() {
-        $("nav ul").slideToggle();
-      });
-    });
-          </script>
+    <link rel="icon"  href="logo.png">
   </head>
   <body>
       <nav>
-        <div>&#x2630;</div>
-          <ul>
-              <li><a href="#Home" class="first">RM</a></li>
-              <li><a href="#AboutMe">O mě</a></li>
-              <li><a href="#Programs">Programy</a></li>
-              <li><a href="#Works">Práce</a></li>
-              <li><a href="#Contact">Kontakt</a></li>
-          </ul>
+                <a href="#Home" class="logo">RM</a>
+                <ul class="nav">
+                    <li><a href="#AboutMe">O mě</a></li>
+                    <li><a href="#Programs">Dovednosti</a></li>
+                    <li><a href="#Works">Práce</a></li>
+                    <li><a href="#Contact">Kontakt</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleNav(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                  </div>
       </nav>
     <main>
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="#AboutMe">O mě</a>
+                <a href="#Programs">Dovednosti</a>
+                <a href="#Works">Práce</a>
+                <a href="#Contact">Kontakt</a>
+            </div>
+          </div>
         <section id="Home">
             <img id="Myself" src="Ich.jpg" alt="ich">
             <div class="Intro">
             <h1>Kdo jsem já?</h1>
-                <p>Vítejte, moje jméno je Richard Mück</p>
+                <p>Vítejte, moje jméno je <strong>Richard Mück</strong></p>
                 
-                <p>Teď jsem studentský zběhlík co jde napříč novým zkušenostem</p>
+                <p>Jsem studentský zběhlík co jde napříč novým zkušenostem a snům. </p>
                 
-                <p>Přesto že nemám několik let zkušeností v oboru, tak za tu dobu jsem pracoval na řadě projektů, které mě neustále posouvají vpřed. </p>
+                <p>Přesto že nemám několik let zkušeností v oboru, tak za tu dobu jsem <strong>pracoval na řadě projektů, které mě neustále posouvají vpřed</strong>. </p>
                 
-                <p>Mezi mé klíčové dovednosti patří webové stránky, Audiovizuální tvorba a drobné programování. </p>
+                <p>Mezi mé klíčové dovednosti patří <strong>webové stránky, Audiovizuální tvorba a drobné programování</strong>. </p>
                 
                 <p>Děkuji za návštěvu!</p>        
         </div>
@@ -47,13 +53,13 @@
             <div class="Story">
                 <h1>Zaměstnání</h1>
 
-                <p>Absolvoval jsem stáž ve společnosti Calyx s.r.o., kde jsem získal zkušenosti s instalací a servisem počítačové a technické vybavení.</p>
+                <p>Absolvoval jsem stáž ve společnosti <strong>Calyx s.r.o.</strong>, kde jsem získal zkušenosti s instalací a servisem počítačové a technické vybavení.</p>
                     
-                <p>Následně jsem pracoval na letní brigádě v Acer Czech Republic s.r.o., kde jsem se podílel na řešení reklamací a servisu počítačové techniky.</p>
+                <p>Následně jsem pracoval na letní brigádě v <strong>Acer Czech Republic s.r.o.</strong>, kde jsem se podílel na řešení reklamací a servisu počítačové techniky.</p>
                     
-                <p>Moje profesní zkušenosti se dále rozšířily během stáže v Kyndryl, kde jsem se zapojil do projektového managementu v oblasti IT.</p>
-                    
-                <p>Zde jsem se podílel na tvorbě strategií a technických řešení, stejně jako na prezentaci a realizaci projektů.</p>
+                <p>Moje profesní zkušenosti se dále rozšířily během stáže v <strong>Kyndryl</strong>, kde jsem se zapojil do projektového managementu v oblasti IT. Zde jsem se podílel na tvorbě strategií a technických řešení, stejně jako na prezentaci a realizaci projektů.</p>
+
+                <p>Poté jsem působil delší dobu jako Fianční poradce pro <strong>ProfiFP</strong>.</p>
                 
             </div>
             
@@ -63,12 +69,12 @@
                         <div id=Gellner>
                             <h2>Střední škola Gellnerova</h2>
                             <p>Obor: Informační technologie s ekonomikou</p>
-                            <p>Zakončené maturitní zkouškou</p>
+                            <p><strong>Zakončené maturitní zkouškou</strong></p>
                         </div>
                         <div id=Mendelu>
                             <h2>Mendelova univerzita v Brně</h2>
                             <p>Obor: Otevřená informatika</p>
-                            <p>Předčasně ukončeno</p>
+                            <p><strong>Předčasně ukončeno</strong></p>
                         </div>
                     </div>
                 </div>
@@ -86,7 +92,6 @@
                         <p>HTML</p>
                         <p>CSS</p>
                         <p>Javascript</p>
-                        <p>PHP</p>
                         <p>WordPress</p>
                 </div>
                 <div class="Edit">
@@ -95,7 +100,7 @@
                         <p>Audacity</p>
                         <p>FL Studio</p>
                         <p>GIMP</p>
-                        <p>Inkscape</p>
+                        <p>Figma</p>
                 </div>
         </section>
         <section id="Works">
@@ -152,5 +157,42 @@
             </div>
           </section>
     </main>
+    <script>
+        function openNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.display = "block";
+  setTimeout(() => {
+    overlay.style.width = "100%";
+  }, 0);
+}
+
+function closeNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.width = "0%";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+}
+
+function toggleNav(x) {
+  const overlay = document.getElementById("myNav");
+  if (overlay.style.width === "100%") {
+    closeNav();
+  } else {
+    openNav();
+  }
+  if (x) {
+    x.classList.toggle("change");
+  }
+}
+
+// Přidáme event listener na odkazy v overlay
+document.querySelectorAll('.overlay a').forEach(link => {
+  link.addEventListener('click', function() {
+    closeNav();
+    document.querySelector('.hamburger').classList.remove('change'); // Odstranění třídy change při kliknutí na odkaz
+  });
+});
+    </script>
 </body>
 </html>
