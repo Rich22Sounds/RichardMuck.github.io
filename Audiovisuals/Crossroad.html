@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Crossroad.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Richard M.</title>
+    <link rel="icon"  href="Logo.svg">
+  </head>
+  <body>
+    <main>
+        <section id="Home">
+            <div class="Intro">
+                <h1>Richard M. Sounds</h1>
+                <a href="Videos.html" class="button Logo-button">Videa a nahrávky</a>
+                <a href="Music.html" class="button Music-button" >Hudba</a>
+                <a href="Graphics.html" class="button basic-button">Grafika</a>
+                <a href="/index.html" class="button basic-button" >Zpátky</a>        
+            </div>
+            <div id="Picture">
+                <img id="Music" src="RichCard.svg" alt="">
+                <img id="Logo" src="Logocrm.svg" alt="">
+                <img id="RM" src="RM.png" alt="">
+            </div>
+        </section>
+    </main>
+    <script>
+       $(document).ready(function(){
+    $(".Logo-button").hover(
+        function() { $("#Logo").show().addClass('fade-in-right'); },
+        function() { $("#Logo").hide().removeClass('fade-in-right'); }
+    );
+    $(".Music-button").hover(
+        function() { $("#Music").show().addClass('fade-in-right'); },
+        function() { $("#Music").hide().removeClass('fade-in-right'); }
+    );
+    $(".basic-button").hover(
+        function() { $("#RM").show().addClass('fade-in-right'); },
+        function() { $("#RM").hide().removeClass('fade-in-right'); }
+    );
+});
+        function openNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.display = "block";
+  setTimeout(() => {
+    overlay.style.width = "100%";
+  }, 0);
+}
+
+function closeNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.width = "0%";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+}
+
+function toggleNav(x) {
+  const overlay = document.getElementById("myNav");
+  if (overlay.style.width === "100%") {
+    closeNav();
+  } else {
+    openNav();
+  }
+  if (x) {
+    x.classList.toggle("change");
+  }
+}
+
+// Přidáme event listener na odkazy v overlay
+document.querySelectorAll('.overlay a').forEach(link => {
+  link.addEventListener('click', function() {
+    closeNav();
+    document.querySelector('.hamburger').classList.remove('change'); // Odstranění třídy change při kliknutí na odkaz
+  });
+});
+    </script>
+</body>
+</html>

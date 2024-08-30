@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Music.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Richard M.</title>
+    <link rel="icon"  href="Logocrm.svg">
+  </head>
+  <body>
+    <nav>
+        <a href="Music.html" class="logo"><img src="Logoblk.svg" alt=""></a>
+        <ul class="nav">
+            <li><a href="Crossroad.html">Zpátky</a></li>
+            
+        </ul>
+        <div class="hamburger" onclick="toggleNav(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+</nav>
+<main>
+<div id="myNav" class="overlay">
+    <div class="overlay-content">
+        <a href="#">Videa</a>
+        <a href="#">Nahrávky</a>
+        <a href="#">Projekty</a>
+    </div>
+  </div>
+        <section id="Home">
+            <div class="Intro">
+              <h1>Hudba</h1>
+                  <p>Hudba kterou jsem vytvořil nebo se na ni podílel.</p>
+                  <p>Již brzy!</p>      
+            </div>
+          <img id="Richcard" src="RichCard.svg" alt="">
+
+        </section>
+    </main>
+    <script>
+        function openNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.display = "block";
+  setTimeout(() => {
+    overlay.style.width = "100%";
+  }, 0);
+}
+
+function closeNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.width = "0%";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+}
+
+function toggleNav(x) {
+  const overlay = document.getElementById("myNav");
+  if (overlay.style.width === "100%") {
+    closeNav();
+  } else {
+    openNav();
+  }
+  if (x) {
+    x.classList.toggle("change");
+  }
+}
+    </script>
+</body>
+</html>

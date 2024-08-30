@@ -1,0 +1,551 @@
+body{
+  font-size: 25px;
+  background-color: black;
+  font-family: Cambria,Georgia,serif; 
+  color: white;
+}
+
+
+/*Navigace*/
+nav {
+  background-color: transparent;
+  color: #fff;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(0,0,0,0.3);
+  border-bottom: 2px solid crimson;
+}
+
+.logo {
+  display: block;
+  color: #333;
+  background: linear-gradient(145deg, red, crimson) !important;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 10px 20px;
+  padding-left: 30%;
+  padding-right: 30%;
+  width: 100%;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.5s, color 0.5s;
+}
+.logo:hover {
+  color: white;
+}
+.logo img{
+  width: 40px;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.nav li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav li:first-child {
+  border-left: none;
+}
+
+.nav li:last-child {
+  border-right: none;
+}
+
+.nav a {
+  color: crimson;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  transition: background 0.5s, color 0.5s;
+}
+
+.nav a:hover {
+  color: white;
+  transition: 0.5s;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+.overlay {
+  display: none;
+}
+
+.hamburger .bar1, .hamburger .bar2, .hamburger .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+
+/*Vlastnosti*/
+html, body, section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section{
+  scroll-snap-align: start;
+scroll-snap-stop: always;
+margin-top: 200px;
+padding-top: 8.5vh;
+  min-height: 90vh;
+  max-height: 90vh;
+}
+div{
+  min-height: 80%;
+  max-height: 80%;
+}
+p{
+  padding-left: 60px;
+}
+/*Vizuální prvky*/
+h1{
+  color: red;
+  padding-left: 20px;
+  font-size: 2em;
+}
+
+h2{
+  padding-left: 40px;
+  font-size: 1.5em;
+}
+strong{
+  color: red;
+}
+.button{
+border: 2px solid red;
+background: transparent;
+width: 50%;
+padding: 30px;
+color: white;
+font-size: 1em;
+transition: 0.5s;
+font-family:'Times New Roman', Times, serif;
+margin: 5px;
+display: block; /* Přidána vlastnost */
+text-align: center; /* Přidána vlastnost */
+    margin-left: auto; /* Přidána vlastnost */
+    margin-right: auto; /* Přidána vlastnost */
+}
+.button:hover{
+background-color: red;
+}
+
+/*Homepage*/
+#Home{
+  margin-top: 0px;
+  display: flex;
+  text-align: center;
+    }
+    /*Vizuální prvky na Homepage*/
+    #Home h1{
+      color: white;
+      padding-left: 20px;
+      font-size: 2em;
+    }
+    #Home h2{
+      padding-left: 40px;
+      font-size: 1.5em;
+    }
+    #Home strong{
+      color: white;
+    }
+    #Home .button{
+      border: 2px solid white;
+      text-decoration: none;
+      background: transparent;
+      width: 50%;
+      padding: 30px;
+      color: white;
+      font-size: 1em;
+      transition: 0.5s;
+      font-family:'Times New Roman', Times, serif;
+      margin: 5px;
+      }
+      #Home a:hover{
+      width: 60%;
+      background-color: white;
+      color: black;
+      }
+.Intro{
+  color: white;
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  align-self: center;
+  display: flex; /* Přidána vlastnost */
+    flex-direction: column; /* Přidána vlastnost */
+    align-items: center; /* Přidána vlastnost */
+}
+    .Music-button:hover{
+      /*background-color: #F4FBAA !important;*/
+      background: linear-gradient(145deg, #fee344, #f4fc9a) !important;
+      box-shadow: 10px 10px 30px #fee344, -10px -10px 30px #f4fc9a !important;
+    }
+    .Logo-button:hover{
+      background: linear-gradient(145deg, red, #dc143c) !important;
+      box-shadow: 10px 10px 30px red, -10px -10px 30px crimson !important;
+      color: white !important;
+    }
+.Menu{
+  align-self: center;
+  align-items: center;
+}
+#Vid-Intro{
+
+}
+#Vid-Intro h1{
+  background: linear-gradient(145deg, red, crimson);
+  box-shadow: 10px 10px 30px red, -10px -10px 30px crimson;
+  border-radius: 16px;
+  text-align: center;
+  align-self: center;
+  color: #000;
+  font-size: 10rem;
+}
+#Aud-Intro{
+
+}
+#Aud-Intro h1{
+  background: linear-gradient(145deg, red, crimson);
+  box-shadow: 10px 10px 30px red, -10px -10px 30px crimson;
+  border-radius: 16px;
+  text-align: center;
+  align-self: center;
+  color: #000;
+  font-size: 10rem;
+}
+
+#Picture{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+#Picture img {
+  display: none;
+  object-fit: contain;
+}
+#Music{
+  filter: drop-shadow(-5px -5px 15px #f4fc9a);
+  display: none;
+  width: 600px;
+  height: 600px;
+}
+#Logo{
+  filter: drop-shadow(-5px -5px 15px crimson);
+  display: none;
+  width: 600px;
+  height: 600px;
+}
+#RM{
+  filter: drop-shadow(-5px -5px 15px white);
+  display: none;
+  width: 600px;
+  height: 600px;
+}
+
+@-webkit-keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+#Logocrm{
+  filter: drop-shadow(-5px -5px 15px crimson);
+  width: 100vh;
+}
+#Richcard{
+  filter: drop-shadow(-5px -5px 15px #f4fc9a);
+  width: 100vh;
+}
+#LogoRM{
+  width: 100vh;
+}
+
+
+
+.fade-in-right {
+	-webkit-animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+#Vid-Block{
+  margin-top: 0px;
+  display: flex;
+  text-align: center;
+    }
+    /*Vizuální prvky na Homepage*/
+    #Vid-Block h1{
+      color: crimson;
+      padding-left: 20px;
+      font-size: 2em;
+    }
+    #Vid-Block h2{
+      padding-left: 40px;
+      font-size: 1em;
+    }
+    #Vid-Block strong{
+      color: white;
+    }
+    #Vid-Block .button{
+      border: 2px solid white;
+      text-decoration: none;
+      background: transparent;
+      width: 50%;
+      padding: 30px;
+      color: white;
+      font-size: 1em;
+      transition: 0.5s;
+      font-family:'Times New Roman', Times, serif;
+      margin: 5px;
+      }
+      #Vid-Block a:hover{
+      width: 60%;
+      background-color: white;
+      color: black;
+      }
+      .Visuals{
+        color: white;
+        padding: 40px;
+        width: 30%;
+        align-self: center;
+      }
+      .video-container {
+        position: relative;
+        max-width: 110vh !important; /* Nastavte na dvojnásobek původní maximální šířky */
+        width: 110vh !important;
+        background: linear-gradient(145deg, red, crimson);
+        box-shadow: 10px 10px 30px red, -10px -10px 30px crimson;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .video {
+        width: 110vh !important;
+        height: auto;
+        display: block;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .video::-webkit-media-controls {
+        display: none !important;
+    }
+    
+    .video::-moz-media-controls {
+        display: none !important;
+    }
+    
+    .vid-controls {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .btn:hover {
+        color: #333;
+    }
+    .seek-bar{
+      width: 600px;
+      height: 2px;
+      background-color: #333;
+      cursor: pointer;
+  }
+    .volume-bar{
+        width: 100px;
+        height: 2px;
+        background-color: #333;
+        cursor: pointer;
+    }
+    
+    /* Fullscreen styles */
+    .fullscreen .video {
+      width: 100%;
+      height: 100%h;
+  }
+  
+  .fullscreen .video-container {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      border-radius: 0;
+      background-color: black;
+  }
+      .Notes{
+        color: white;
+        padding: 20px;
+        width: 30%;
+        text-align: center;
+      }
+          .Music-button:hover{
+            background-color: #F4FBAA !important;
+          }
+          .Logo-button:hover{
+            background-color: crimson !important;
+            color: white !important;
+          }
+          
+          #Aud-Block{
+            margin-top: 0px;
+            display: flex;
+            text-align: center;
+              }
+              /*Vizuální prvky na Homepage*/
+              #Aud-Block h1{
+                color: crimson;
+                padding-left: 20px;
+                font-size: 2em;
+              }
+              #Aud-Block h2{
+                padding-left: 40px;
+                font-size: 1em;
+              }
+              #Aud-Block strong{
+                color: white;
+              }
+              #Aud-Block .button{
+                border: 2px solid white;
+                text-decoration: none;
+                background: transparent;
+                width: 50%;
+                padding: 30px;
+                color: white;
+                font-size: 1em;
+                transition: 0.5s;
+                font-family:'Times New Roman', Times, serif;
+                margin: 5px;
+                }
+                #Aud-Block a:hover{
+                width: 60%;
+                background-color: white;
+                color: black;
+                }
+                .audio-container {
+                  position: relative;
+                  width: 110vh;
+                  max-width: 110vh;
+                  margin: 0 auto;
+                  background: linear-gradient(145deg, red, crimson);
+                  box-shadow: 10px 10px 30px red, -10px -10px 30px crimson;
+                  border-radius: 8px;
+                  overflow: hidden;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                }
+                
+                .audio {
+                  width: 100%;
+                  background-color: #000;
+                }
+                
+                .audio-controls {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 10px;
+
+                }
+                
+                .audio-controls .audio-btn {
+                  background: none;
+                  border: none;
+                  color: #fff;
+                  cursor: pointer;
+                  margin: 0 5px;
+                  display: flex;
+                  align-items: center;
+                }
+
+                .audio-btn:hover {
+                  color: crimson;
+                }
+                
+                .audio-controls .audio-btn svg {
+                  fill: #fff;
+                }
+                
+                .audio-controls .audio-seek-bar{
+                  width: 600px;
+                  height: 2px;
+                  margin: 0 10px;
+                }
+                .audio-controls .audio-volume-bar {
+                  width: 100px;
+                  height: 2px;
+                  margin: 0 10px;
+                }
+                .Notes{
+                  color: white;
+                  padding: 20px;
+                  width: 30%;
+                  text-align: center;
+                }
+                    .Music-button:hover{
+                      background-color: #F4FBAA !important;
+                    }
+                    .Logo-button:hover{
+                      background-color: crimson !important;
+                      color: white !important;
+                    }
