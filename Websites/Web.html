@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Web.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Richard M.</title>
+    <link rel="icon"  href="Logocrm.svg">
+  </head>
+  <body>
+    <nav>
+        <a href="Web.html" class="logo">RM</a>
+        <ul class="nav">
+            <li><a href="/index.html">Zpátky</a></li>
+            
+        </ul>
+        <div class="hamburger" onclick="toggleNav(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+</nav>
+<main>
+        <section id="Home">
+            <img id="LogoRM" src="RM.png" alt="">
+            <div class="Intro">
+              <h1>Webové stránky</h1>
+                  <p>Portfolia, e-shopy a další stránky co reprezentují</p>
+                  <p>Jsou zde jak ukázkové weby tak i skutečné které jsem na míru vytvořil</p>  
+            </div>
+
+        </section>
+        <section id="Graph">
+          <div class="Intro">
+            <h1>Portfolio</h1>
+                <p>Čím jiným začít než svým portfoliem</p>
+                <p>Portfolio má připomínat klasickou powerpoint prezentaci díky scrollování</p>  
+                <p>Má linky na rozcestník s audiovizuálními prácemi, ukázkami webu (kde jsme) a stáhnutí CV</p>
+                <p>Celé tvořeno ve VisualCode Studiu</p>
+                <a href="Crossroad" class="button">Navštívit stránku</a>
+          </div>
+        <img id="Showcase" src="Portfolio.jpg" alt="">
+      </section>
+      <section id="Graph">
+        <div class="Intro">
+          <h1>Hardset Brno</h1>
+              <p>Skutečný projekt s tetovacím a piercingovém studiu Hardset</p>
+              <p>Má reprezentovat a informovat o službách a událostech</p>
+              <p>Stránka je snadno ovladatelná adminem který zde vkládá novinky a obrázky do galerie anižby zasahoval do kódu</p>  
+              <p>Celé tvořeno ve VisualCode Studiu</p>
+              <a href="RMWeb" class="button">Navštívit stránku</a>
+        </div>
+      <img id="Showcase" src="AllSharpNew.jpg" alt="">
+    </section>
+        
+    </main>
+    <script>
+        function openNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.display = "block";
+  setTimeout(() => {
+    overlay.style.width = "100%";
+  }, 0);
+}
+
+function closeNav() {
+  const overlay = document.getElementById("myNav");
+  overlay.style.width = "0%";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+}
+
+function toggleNav(x) {
+  const overlay = document.getElementById("myNav");
+  if (overlay.style.width === "100%") {
+    closeNav();
+  } else {
+    openNav();
+  }
+  if (x) {
+    x.classList.toggle("change");
+  }
+}
+
+// Přidáme event listener na odkazy v overlay
+document.querySelectorAll('.overlay a').forEach(link => {
+  link.addEventListener('click', function() {
+    closeNav();
+    document.querySelector('.hamburger').classList.remove('change'); // Odstranění třídy change při kliknutí na odkaz
+  });
+});
+const video = document.getElementById('video');
+const playPauseButton = document.getElementById('play-pause');
+const muteButton = document.getElementById('mute');
+const fullScreenButton = document.getElementById('full-screen');
+const seekBar = document.getElementById('seek-bar');
+const volumeBar = document.getElementById('volume-bar');
+const videoContainer = document.getElementById('video-container');
+
+// SVG for Play/Pause
+const playSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16"><path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/></svg>';
+const pauseSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16"><path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5"/></svg>';
+
+// SVG for Mute/Unmute
+const muteSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute" viewBox="0 0 16 16"><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06M6 5.04 4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96zm7.854.606a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/></svg>';
+const unmuteSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up" viewBox="0 0 16 16"><path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/><path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/><path d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"/></svg>';
+
+// SVG for Full Screen/Exit Full Screen
+const fullScreenSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5"/></svg>';
+const exitFullScreenSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen-exit" viewBox="0 0 16 16"><path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z"/></svg>';
+
+// Play/Pause button functionality
+playPauseButton.addEventListener('click', function() {
+    if (video.paused) {
+        video.play();
+        playPauseButton.innerHTML = pauseSvg; // Use SVG for Pause
+    } else {
+        video.pause();
+        playPauseButton.innerHTML = playSvg; // Use SVG for Play
+    }
+});
+
+// Mute/Unmute button functionality
+muteButton.addEventListener('click', function() {
+    video.muted = !video.muted;
+    muteButton.innerHTML = video.muted ? muteSvg : unmuteSvg; // Use SVG for Mute/Unmute
+});
+
+// Full Screen button functionality
+fullScreenButton.addEventListener('click', function() {
+    if (!document.fullscreenElement) {
+        if (videoContainer.requestFullscreen) {
+            videoContainer.requestFullscreen();
+        } else if (videoContainer.mozRequestFullScreen) { /* Firefox */
+            videoContainer.mozRequestFullScreen();
+        } else if (videoContainer.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            videoContainer.webkitRequestFullscreen();
+        } else if (videoContainer.msRequestFullscreen) { /* IE/Edge */
+            videoContainer.msRequestFullscreen();
+        }
+        fullScreenButton.innerHTML = exitFullScreenSvg; // Use SVG for Exit Full Screen
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+        fullScreenButton.innerHTML = fullScreenSvg; // Use SVG for Full Screen
+    }
+});
+
+// Handle fullscreen change
+document.addEventListener('fullscreenchange', function() {
+    if (document.fullscreenElement) {
+        videoContainer.classList.add('fullscreen');
+    } else {
+        videoContainer.classList.remove('fullscreen');
+    }
+});
+
+// Seek bar functionality
+seekBar.addEventListener('input', function() {
+    const time = video.duration * (seekBar.value / 100);
+    video.currentTime = time;
+});
+
+// Update seek bar as video plays
+video.addEventListener('timeupdate', function() {
+    const value = (100 / video.duration) * video.currentTime;
+    seekBar.value = value;
+});
+
+// Volume bar functionality
+volumeBar.addEventListener('input', function() {
+    video.volume = volumeBar.value;
+});
+const audio = document.getElementById('audio');
+const audioPlayPauseButton = document.getElementById('audio-play-pause');
+const audioMuteButton = document.getElementById('audio-mute');
+const audioSeekBar = document.getElementById('audio-seek-bar');
+const audioVolumeBar = document.getElementById('audio-volume-bar');
+
+// SVG for Play/Pause
+const AudPlaySvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16"><path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/></svg>';
+const AudPauseSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16"><path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5"/></svg>';
+
+// SVG for Mute/Unmute
+const AudMuteSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-mute" viewBox="0 0 16 16"><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06M6 5.04 4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96zm7.854.606a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 1 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/></svg>';
+const AudUnmuteSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up" viewBox="0 0 16 16"><path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/><path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/><path d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"/></svg>';
+
+// Play/Pause button event listener
+audioPlayPauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        audioPlayPauseButton.innerHTML = AudPauseSvg;
+    } else {
+        audio.pause();
+        audioPlayPauseButton.innerHTML = AudPlaySvg;
+    }
+});
+
+// Mute/Unmute button event listener
+audioMuteButton.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    audioMuteButton.innerHTML = audio.muted ? AudMuteSvg : AudUnmuteSvg;
+});
+
+// Update seek bar as audio plays
+audio.addEventListener('timeupdate', () => {
+    const value = (audio.currentTime / audio.duration) * 100;
+    audioSeekBar.value = value;
+});
+
+// Seek bar event listener
+audioSeekBar.addEventListener('input', () => {
+    const time = (audioSeekBar.value * audio.duration) / 100;
+    audio.currentTime = time;
+});
+
+// Volume bar event listener
+audioVolumeBar.addEventListener('input', () => {
+    audio.volume = audioVolumeBar.value;
+});
+    </script>
+</body>
+</html>
