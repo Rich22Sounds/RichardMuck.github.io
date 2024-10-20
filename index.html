@@ -11,6 +11,15 @@
     <link rel="icon"  href="logo.png">
   </head>
   <body>
+    <div class="loading-overlay" id="loading">
+      <div class="wave-container">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+      </div>
+  </div>
       <nav>
                 <a href="#Home" class="logo">RM</a>
                 <ul class="nav">
@@ -36,91 +45,70 @@
           </div>
         <section id="Home">
             <div class="Introduction">
-          
             <div id="Welcome">
             <h1>Kdo jsem já?</h1>
                 <p>Vítejte, moje jméno je <strong>Richard Mück</strong></p>
                 
-                <p>Jsem studentský zběhlík co jde napříč novým zkušenostem a snům. </p>
-                
-                <p>Přesto že nemám několik let zkušeností v oboru, tak za tu dobu jsem <strong>pracoval na řadě projektů, které mě neustále posouvají vpřed</strong>. </p>
-                
-                <p>Mezi mé klíčové dovednosti patří <strong>webové stránky, audiovizuální tvorba a grafický design</strong>. </p>
+                <p>A jsem: <span id="text"></span>
                 
                 <p>Děkuji za návštěvu!</p>
-              </div>
-              <img id="Myself" src="Ich.jpg" alt="ich">
-        </div>
+            </div>
+
+          </div>
         </section>
         <section id="AboutMe">
-            <div class="Myself">
-              <div id="Story">
-                    <h1>Zaměstnání</h1>
-
-                    <p>Absolvoval jsem stáž ve společnosti <strong>Calyx s.r.o.</strong>, kde jsem získal zkušenosti s instalací a servisem počítačové a technické vybavení.</p>
-                        
-                    <p>Následně jsem pracoval na letní brigádě v <strong>Acer Czech Republic s.r.o.</strong>, kde jsem se podílel na řešení reklamací a servisu počítačové techniky.</p>
-                        
-                    <p>Moje profesní zkušenosti se dále rozšířily během stáže v <strong>Kyndryl</strong>, kde jsem se zapojil do projektového managementu v oblasti IT. Zde jsem se podílel na tvorbě strategií a technických řešení, stejně jako na prezentaci a realizaci projektů.</p>
-
-                    <p>Poté jsem působil delší dobu jako Finanční poradce pro <strong>ProfiFP</strong>.</p>
-                    
-                </div>
+            <div class="Myself invisible">
                 <div id="School">
-                    <h1>Školy</h1>
-                    <div class="bloky">
-                        <div id=Gellner>
-                            <h2>Střední škola Gellnerova</h2>
-                            <p>Obor: Informační technologie s ekonomikou</p>
-                            <p>Zakončené maturitní zkouškou</p>
-                        </div>
-                        <div id=Mendelu>
-                            <h2>Mendelova univerzita v Brně</h2>
-                            <p>Obor: Otevřená informatika</p>
-                            <p>Předčasně ukončeno</p>
-                        </div>
-                    </div>
+
+                </div>
+                <div id="Story">
+                    <h1>Kariéra</h1>
+
+                    <p>Získal jsem zkušenosti s instalací, servisem a řešením technických problémů během stáží a brigád v IT firmách.</p>
+                    
+                    <p>Později jsem se zapojil do projektového managementu, kde jsem se věnoval tvorbě strategií a realizaci technických řešení. Mám také praxi jako finanční poradce.</p>
+
+                    <p>Vždy mě to ale táhlo ke kreativnějším odvětvím jako <strong>webdesign, zvuk a video</strong>. Proto si za tím jdu a nyní pracuji pro <strong>Expert Dev</strong> jako jeden z vývojářů.</p>
+
+                    <p>Krom toho ale ve volném čase se věnuji i pracím svých jako třeba <strong>stránky na zakázku, zvukové nahrávky</strong> nebo se podílím i na <strong>natáčení videí.</strong></p>
+                    
                 </div>
             </div>
         </section>
-        <section id="Programs">
+        <section id="Programs" class="invisible">
             <h1>S čím umím pracovat?</h1>
             <lord-icon
               src="https://cdn.lordicon.com/vduvxizq.json"
               trigger="loop"
               delay="1000"
-              colors="primary:#dc143c"
-              style="width:180px;height:850px">
+              colors="primary:#dc143c">
           </lord-icon>
             <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                <div class="Programing">
+              <div class="Skills">
+                <div class="Programing invisible">
                     <h2>Programování</h2>
                         <p>Java</p>
                         <p>C++</p>
                         <p>Python</p>
+                        <p>Javascript</p>
                 </div>
                 <div class="Web">
                     <h2>Webdesign</h2>
                         <p>WordPress</p>
-                        <p>HTML</p>
-                        <p>CSS</p>
-                        <p>Javascript</p>
+                        <p>HTML a CSS</p>
                         <p>React</p>
                         <p>Node.js</p>
-                        <p>Bootstrap</p>
-                        <p>REST API</p>
                 </div>
                 <div class="Edit">
                     <h2>Editace</h2>
                         <p>DavinciResolve</p>
-                        <p>Photoshop</p>
                         <p>GIMP</p>
-                        <p>Illustrator</p>
                         <p>Audacity</p>
                         <p>Figma</p>
                 </div>
+              </div>
         </section>
-        <section id="Works">
+        <section id="Works" class="invisible">
             <h1>Moje projekty</h1>
             <div class="Work-links">
               <div id="Audiovizual" class="work-item">
@@ -149,40 +137,39 @@
               </div>
             </div>
         </section>
-        <section id="Contact">
+        <section id="Contact" class="invisible">
             <h1>Kde mě kontaktovat?</h1>
-            <div>
             <div class="Sites">
-            <div class="Other">
-              <div id="Telephone">
-                <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-                </svg> Telefon</h2>
-                <p>+420 770 616 430</p>
+              <div class="Other">
+                <div id="Telephone">
+                  <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                  </svg> Telefon</h2>
+                  <p>+420 770 616 430</p>
+                </div>
+                <div id="Email">
+                  <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                  </svg> Email</h2>
+                  <p>rich.22@seznam.cz</p>
+                </div>
               </div>
-              <div id="Email">
-                <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                </svg> Email</h2>
-                <p>rich.22@seznam.cz</p>
+              <div class="Socials">
+                  <a href="https://www.linkedin.com/in/richard-m%C3%BCck-265399250/" id="LinkedIn">
+                      <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                          </svg>
+                      </div>
+                  </a>
+                  <a href="https://github.com/Rich22Sounds" id="Github">
+                      <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                          </svg>
+                      </div>
+                  </a>
               </div>
-            </div>
-            <div class="Socials">
-                <a href="https://www.linkedin.com/in/richard-m%C3%BCck-265399250/" id="LinkedIn">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://github.com/Rich22Sounds" id="Github">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
             </div>
           </section>
     </main>
@@ -222,6 +209,71 @@ document.querySelectorAll('.overlay a').forEach(link => {
     document.querySelector('.hamburger').classList.remove('change'); // Odstranění třídy change při kliknutí na odkaz
   });
 });
+document.addEventListener('scroll', function() {
+var fadeInSections = document.querySelectorAll('.invisible');
+
+fadeInSections.forEach(function(section) {
+var sectionTop = section.getBoundingClientRect().top;
+var triggerPoint = window.innerHeight * 0.5; // bod, kdy sekce začne být viditelná
+
+if (sectionTop < triggerPoint) {
+    section.classList.add('visible');
+}
+});
+});
+window.addEventListener("load", function () {
+    const loadingOverlay = document.querySelector(".loading-overlay");
+    const links = document.querySelectorAll("a.link");
+
+    // Skrytí overlay po načtení stránky s plynulým přechodem
+    setTimeout(() => {
+        loadingOverlay.classList.add("hidden");
+    }, 1000);  // Trochu delší načtení na startu
+
+    // Zobrazení overlay při kliknutí na odkazy
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            loadingOverlay.classList.remove("hidden"); // Zobrazení overlay
+
+            // Zpoždění pro zobrazení overlay a pak přesměrování
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 3000);  // Delší prodleva 3 sekundy
+        });
+    });
+});
+const texts = [
+        { text: "Web developer", color: "crimson" },
+        { text: "Sound designer", color: "red" },
+        { text: "Hudební nadšenec", color: "#fee344" },
+        { text: "Grafický designer", color: "green" },
+    ];
+
+    let index = 0;
+    let charIndex = 0;
+    let currentText = "";
+    let typingInterval;
+
+    function typeText() {
+        const textElement = document.getElementById("text");
+        currentText = texts[index].text;
+        textElement.style.color = texts[index].color;
+
+        textElement.innerHTML = currentText.slice(0, charIndex);
+        charIndex++;
+
+        if (charIndex > currentText.length) {
+            clearInterval(typingInterval);
+            setTimeout(() => {
+                index = (index + 1) % texts.length;
+                charIndex = 0;
+                typingInterval = setInterval(typeText, 100);
+            }, 2000); // Pauza 2 sekundy, než začne další text
+        }
+    }
+
+    typingInterval = setInterval(typeText, 100);
     </script>
 </body>
 </html>

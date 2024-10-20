@@ -1,7 +1,76 @@
 body{
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-size: 25px;
-  background-color: #555;
+  background-color: #444;
   font-family: Cambria, serif;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+/* Skrytí overlay */
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Kontejner pro zvukovou vlnu */
+.wave-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+}
+
+/* Styl pro jednotlivé sloupce vlny */
+.wave-bar {
+  border-radius: 25px;
+  align-self: center;
+  width: 10px;
+  height: 100%;
+  background-color: crimson;
+  animation: wave-animation 1.2s ease-in-out infinite;
+}
+
+/* Animace pro zvukovou vlnu */
+@keyframes wave-animation {
+  0%, 100% {
+      height: 20%;
+  }
+  50% {
+      height: 100%;
+  }
+}
+
+/* Stupňování animace pro každý sloupec, aby se vlny lišily ve výšce */
+.wave-bar:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.wave-bar:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave-bar:nth-child(5) {
+  animation-delay: 0.6s;
 }
 
 nav {
@@ -100,7 +169,7 @@ nav {
   transition: 0.4s;
 }
 
-html, body, section {
+section {
   block-size: 100%;
 }
 
@@ -110,34 +179,33 @@ html {
 
 section{
   scroll-snap-align: start;
-scroll-snap-stop: always;
-margin-top: 200px;
-padding-top: 8.5vh;
+  scroll-snap-stop: always;
+  margin-top: 200px;
+  padding-top: 9vh;
   min-height: 90vh;
-  max-height: 90vh;
+  max-height: 100vh;
 }
-
+.invisible{
+  opacity: 0;
+  transform: translateY(30px); /* mírný posun dolů */
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
+}
+.visible{
+  opacity: 1;
+  transform: translateY(0); /* vynulování posunu */
+}
 h1{
   color: crimson;
-  padding-left: 20px;
   font-size: 2em;
 }
 
-h2{
-  padding-left: 40px;
-  font-size: 1.5em;
-}
-
 p{
-  padding-left: 60px;
+  padding-left: 30px;
 }
 strong{
   color: crimson;
 }
-div{
-  min-height: 80%;
-  max-height: 80%;
-}
+
 .button{
   border: 2px solid crimson;
   text-decoration: none;
@@ -165,36 +233,57 @@ div{
 
 #Home{
   margin-top: 0px;
-  display: flex;
+  background-image: url(Ich\ -\ kopie.jpg);
+  background-position: 290px -275px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
     }
+
     .Introduction{
       display: flex;
-      background-color: #333;
-      gap: 10px;
+      align-items: center;
+      justify-content:space-between;
     }
     #Welcome{
+      margin-left: 20px;
+      background-color: #333;
+      border-color: #dc143c;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-left-style: solid;
       color: white;
-      padding: 20px;
       align-self: center;
+      padding: 260px 25px 250px 25px;
     }
     #Myself{
-      width: 100%;
+      display: none;
+      border-radius: 50%;
+      width: auto;
       height: 100%;
-      align-self: center;
       filter: grayscale(100);
     }
+    #text {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+
+  }
 #AboutMe{
-      display: flex;
+  display: flex;
         }
         .Myself{
           display: flex;
         }
         #Story{
+          margin-right: 20px;
+          border-color: #dc143c;
+          border-right-style: solid;
           background-color: #333;
           color: white;
           width: 50%;
-          padding: 85px;
+          padding: 140px 25px 110px 25px;
           align-self: center;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         #School{
           color: #222;
@@ -205,6 +294,9 @@ div{
           #School p{
               margin-left: 60px;
           }
+
+
+
 #Programs{
   display: flex;
   }
@@ -213,81 +305,66 @@ div{
     padding-left: 80px;
     padding-right: 0px;
     }
+    lord-icon{
+      width:200px;
+      height:850px;
+    }
+    .Skills{
+      justify-self: center;
+      display: flex;
+      width: 100%;
+      min-height: 50%;
+      max-height: 60%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
       .Programing{
           background-image: url(Code.gif);
           background-position: center;
+      }
+      .Web{
+        background-image: url(Web.gif);
+        background-position: center;
+      }
+      .Edit{
+        background-image: url(Audiovis.gif);
+        background-position: center;
+      }
+
+    .Programing, .Web, .Edit{
           color: white;
           padding: 20px;
-          width: 25%;
-          padding-top: 300px;
-          padding-bottom: 300px; /* Pevný spodní padding */
+          width: 33%;
+          padding-top: 90px;
+          padding-bottom: 90px; /* Pevný spodní padding */
           transition: 0.5s;
           display: flex; /* Použijeme flexbox pro centrování obsahu */
           flex-direction: column;
           justify-content: center;
           align-items: center;
-      }
-      .Programing p {
-        display: none;
-    }
-      .Programing:hover{
-        background-image: none;
-        background-color: crimson;
-        width: 40%;
-      }
-      .Programing:hover p {
-        display: block;
-    }
-      .Web{
-          background-image: url(Web.gif);
-          background-position: center;
-          color: white;
-          padding: 20px;
-          width: 25%;
-          padding-top: 300px;
-          padding-bottom: 300px; /* Pevný spodní padding */
-          transition: 0.5s;
-          display: flex; /* Použijeme flexbox pro centrování obsahu */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-      }
-      .Web p {
-        display: none;
-    }
-      .Web:hover{
-        background-image: none;
-        background-color: crimson;
-        width: 40%;
-      }
-      .Web:hover p {
-        display: block;
-    }
-      .Edit{
-          background-image: url(Audiovis.gif);
-          background-position: center;
-          color: white;
-          padding: 20px;
-          width: 25%;
-          padding-top: 300px;
-          padding-bottom: 300px; /* Pevný spodní padding */
-          transition: 0.5s;
-          display: flex; /* Použijeme flexbox pro centrování obsahu */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
           }
-          .Edit p {
+          .Programing p, .Web p , .Edit p {
             display: none;
         }
-          .Edit:hover{
+        .Programing:hover , .Web:hover ,.Edit:hover{
             background-image: none;
             background-color: crimson;
             width: 40%;
           }
-          .Edit:hover p {
+          .Programing:hover p , .Web:hover p ,.Edit:hover p {
             display: block;
         }
+        .Programing h2, .Web h2, .Edit h2 {
+          font-size: 2em; /* Větší nadpis */
+          margin: 0;
+          transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+        }
+        
+        .Programing:hover h2, .Web:hover h2, .Edit:hover h2 {
+          transform: translate(0%,-150px); /* Přesun nadpisu nahoru při hoveru */
+        }
+
+
+
 #Works{
       }
       #Works h1{
@@ -296,8 +373,11 @@ div{
               }
     .Work-links{
       display: flex;
+      align-items: center;
+      justify-content:space-around;
     }
-  #Audiovizual {
+
+#Audiovizual {
     background: url(Audio.gif);
     background-position: center;
 }
@@ -313,13 +393,32 @@ div{
 }
 #Audiovizual, #Websites, #Others {
   padding: 20px;
-  padding-bottom: 300px; /* Pevný spodní padding */
-  width: 33%;
-  background-position: center;
+  width: 29%;
+  min-height: 600px; /* Dostatečná výška pro přesné centrování */
   color: white;
-  position: relative;
-  overflow: hidden; /* Zabrání přetečení obsahu */
-  transition: transform 0.5s, box-shadow 0.5s; /* Přidáme animaci pro transformaci a box-shadow */
+  position: relative; /* Pozicování relativní vůči divu */
+  overflow: hidden; 
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  filter: grayscale(100);
+}
+
+#Audiovizual h2, #Websites h2, #Others h2 {
+  font-size: 2em; /* Větší nadpis */
+  margin: 0;
+  position: absolute; /* Absolutní pozicování */
+  top: 50%; /* Vertikálně uprostřed */
+  left: 50%; /* Horizontálně uprostřed */
+  transform: translate(-50%, -50%); /* Přesné vycentrování */
+  transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+  text-align: center;
+}
+
+#Audiovizual:hover h2, #Websites:hover h2, #Others:hover h2 {
+  transform: translate(-50%, -260px); /* Přesun nadpisu nahoru při hoveru */
 }
 
 #Audiovizual, #Websites, #Others {
@@ -330,7 +429,9 @@ div{
 }
 
 #Audiovizual:hover, #Websites:hover, #Others:hover {
-  transition: 0.5s;
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  filter: grayscale(0);
 }
 
 #Audiovizual p, #Websites p, #Others p, 
@@ -352,96 +453,133 @@ div{
   left: 50%; 
   transform: translateX(-50%);
 }
+
+
+
 #Contact {
-        display: flex;
-        flex-direction: column;
-      }
-      #Contact h1 {
-        text-align: center;
-      }
-      .Sites{
-        display: flex;
-        width: 100%;
-        gap: 100px;
-        align-self: center;
-      }
-      .Socials {
-        justify-content: space-around;
-        align-self: center;
-        width: 50%;
-        height: 50%;
-        margin-bottom: 30px;
-      }
-      .Socials svg{
-        margin-bottom: 10px;
-        width: 60px; /* Zvýšení šířky SVG ikon */
-        height: 60px; /* Zvýšení výšky SVG ikon */
-        fill: white;
-      }
-      .Socials a {
-        text-decoration: none; /* Zruší podtržení textu */
-        color: inherit; /* Zachová barvu textu */
-    }
-      .Socials a div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 80px;
-        margin-bottom: 80px;
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        color: white;
-        transition: background-color 0.3s ease;
-      }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  color: #333;
+}
 
-      .Socials a#LinkedIn div {
-        background-color: #0077B5;
-        border: 4px solid #0077B5;
-      }
-      .Socials a#LinkedIn div:hover {
-        background-color: transparent;
-      }
+/* Nadpis sekce */
+#Contact h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
 
-      .Socials a#Github div {
-        background-color: #333;
-        border: 4px solid #333;
-      }
-      .Socials a#Github div:hover {
-        background-color: transparent;
-      }
-      .Socials p {
-        margin: 0;
-      }
-      
-      .Other {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #333;
-        width: 60%;
-        padding-top: 230px;
-        padding-bottom: 230px;
-        color: white;
-      }
-      
-      .Other div {
-        text-align: center;
-      }
-      
-      .Other h2 {
-        margin: 0;
-        color: crimson;
-        font-weight: bold;
-      }
-      
-      .Other p {
-        margin: 20px 0 0;
-      }
+/* Flexbox layout pro různé stránky (webové a sociální) */
+.Sites {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* Kontejnery pro sociální sítě */
+.Socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Ikony sociálních sítí */
+.Socials svg {
+  width: 50px;
+  height: 50px;
+  fill: white;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.Socials svg:hover {
+  transform: scale(1.1);
+}
+
+/* Odkazy a ikonové boxy */
+.Socials a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Socials a div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #0077B5; /* LinkedIn default */
+  color: white;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Socials a div:hover {
+  background-color: #ff6347;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Socials a#LinkedIn div {
+  background-color: #0077B5;
+}
+
+.Socials a#Github div {
+  background-color: #333;
+}
+
+/* Popis u sociálních ikon */
+.Socials p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Styl pro sekci "Other" */
+.Other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  background-color: #222;
+  padding: 60px 40px;
+  color: white;
+  border-left: 6px solid crimson;
+  width: 80%;
+  max-width: 1000px;
+  margin-top: 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Other h2 {
+  font-size: 2.5rem;
+  color: crimson;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.Other p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 10px;
+  color: #ddd;
+  text-align: center;
+}
       @media only screen and (max-width: 900px) {
         body{
-          font-size: 20px;
+          font-size: 15px;
         }
         .nav {
           display: none;
@@ -450,17 +588,17 @@ div{
       }
       h1{
         color: crimson;
-        padding-left: 10px;
+        padding-left: 5px;
         font-size: 2em;
       }
       
       h2{
-        padding-left: 40px;
+        padding-left: 20px;
         font-size: 1.5em;
       }
       
       p{
-        padding-left: 30px;
+        padding-left: 20px;
       }
       .logo{
         padding-left: 20%;
@@ -500,8 +638,8 @@ div{
       }
       .overlay {
         display: none;
-        height: 100%; /* Výška na 100% */
-        width: 100%; /* Šířka na 100% */
+        height: 500%; /* Výška na 100% */
+        width: 200%; /* Šířka na 100% */
         position: fixed;
         top: 0;
         left: 0;
@@ -514,7 +652,7 @@ div{
       
       .overlay-content {
         position: relative;
-        top: 25%;
+        top: 0%;
         width: 100%;
         text-align: center;
         margin-top: 30px;
@@ -555,10 +693,14 @@ div{
           align-items: center; /* Zarovnání na střed */
           position: relative; /* Přidáno pro kontext pro absolutní pozicování */
       }
-      
+      .Introduction{
+        display: flex;
+        background-color: #333;
+        gap: 10px;
+      }
       #Myself {
           justify-self: center;
-          width: 100%;
+          width: 45%;
           height: 45%;
           filter: grayscale(100);
           position: relative; /* Relativní pozicování */
@@ -568,100 +710,132 @@ div{
       .Intro {
           background-color: #333;
           color: white;
-          width: 100%;
-          bottom: 0vh;
-          padding: 0px;
-          padding-top: 20px;
-          padding-bottom: 0px;
           position: relative; /* Aby se mohla uplatnit pozice .Intro */
           z-index: 1; /* Nastavení z-indexu */
       }
 #AboutMe{
-              justify-content: center;
+  display: grid;
 
                 }
-                .Story{
+                .Myself{
+                  display: grid;
+                  gap: 10px;
+                }
+                #Story{
                   background-color: #333;
                   color: white;
-                  width: 100%;
-                  padding: 0px;
-                  padding-bottom: 100px;
-                  height: 200%;
+                  width: 95%;
+                  padding: 10px;
+                  padding-bottom: 110px;
                 }
-                
-                .School{
+                #School{
                   color: #333;
-                  width: 50%;
-                  padding: 0px;
-                  padding-top: 0px;
+                  padding: 10px;
+                  width: 95%;
                 }
-                  .School p{
-                      margin-left: 15px;
+                #School p{
+                      margin-left: 60px;
                   }
 #Programs{               
   display: grid;
                     }
+                    lord-icon{
+                        display: none;
+                      }
+                      .Skills{
+                        display: grid;
+                        height: 50%;
+                        gap: 100px;
+                      }
                         .Programing{
-                            background-image: url(Code.gif);
-                            background-position: center;
-                            color: white;
-                            padding-left: 0px;
-                            padding-right: 0px;
-                            width: 100%;
+                          background-image: url(Code.gif);
+                          background-position: center;
+                          color: white;
+                          padding: 10px;
+                          width: 45%;
+                          padding-top: 50px;
+                          padding-bottom: 50px; /* Pevný spodní padding */
+                          transition: 0.5s;
+                          display: flex; /* Použijeme flexbox pro centrování obsahu */
                         }
                         .Programing p {
                           display: none;
+                          flex-direction: row;
                       }
+                      
                         .Programing:hover{
                           background-image: none;
                           background-color: crimson;
-                          width: 100%;
+                          width: 95%;
+                          padding-top: 80px;
+                            padding-bottom: 80px; /* Pevný spodní padding */
                         }
                         .Programing:hover p {
                           display: block;
+                          flex-direction: row;
                       }
                         .Web{
-                            background-image: url(Web.gif);
-                            background-position: center;
-                            color: white;
-                            padding-left: 0px;
-                            padding-right: 0px;
-                            width: 100%;
+                          background-image: url(Web.gif);
+                          background-position: center;
+                          color: white;
+                          padding: 10px;
+                          width: 45%;
+                          padding-top: 50px;
+                          padding-bottom: 50px; /* Pevný spodní padding */
+                          transition: 0.5s;
+                          display: flex; /* Použijeme flexbox pro centrování obsahu */
                         }
                         .Web p {
                           display: none;
+                          flex-direction: row;
                       }
                         .Web:hover{
                           background-image: none;
                           background-color: crimson;
-                          width: 100%;
+                          width: 95%;
+                          padding-top: 120px;
+                            padding-bottom: 120px; /* Pevný spodní padding */
                         }
                         .Web:hover p {
                           display: block;
+                          flex-direction: row;
                       }
                         .Edit{
-                            background-image: url(Audiovis.gif);
-                            background-position: center;
-                            color: white;
-                            padding-left: 0px;
-                            padding-right: 0px;
-                            width: 100%;
+                          background-image: url(Audiovis.gif);
+                          background-position: center;
+                          color: white;
+                          padding: 10px;
+                          width: 45%;
+                          padding-top: 50px;
+                          padding-bottom: 50px; /* Pevný spodní padding */
+                          transition: 0.5s;
+                          display: flex; /* Použijeme flexbox pro centrování obsahu */
                             }
                             .Edit p {
                               display: none;
+                              flex-direction: row;
                           }
                             .Edit:hover{
                               background-image: none;
                               background-color: crimson;
-                              width: 100%;
+                              width: 95%;
+                              padding-top: 100px;
+                            padding-bottom: 100px; /* Pevný spodní padding */
                             }
                             .Edit:hover p {
                               display: block;
+                              flex-direction: row;
                           }
 #Works{
                             display: grid;
                                   }
-                                  .Audiovizual {
+                                  .Work-links{
+                                    display: grid;
+                                    gap: 110px;
+                                  }
+                                  #Audiovizual {
+                                    padding: 10px;
+                                    padding-bottom: 80px; /* Pevný spodní padding */
                                     padding-left: 0px;
                                     padding-right: 0px;
                                     width: 100%;
@@ -672,24 +846,27 @@ div{
                                     position: relative;
                                 }
                                 
-                                .Audiovizual p, .Audiovizual button {
+                                #Audiovizual p, #Audiovizual button {
                                     display: none;
                                 }
                                 
-                                .Audiovizual:hover {
-                                  width: 100%;
+                                #Audiovizual:hover {
+                                  padding-top: 20px;
+                                  padding-bottom: 150px; /* Pevný spodní padding */
                                 }
                                 
-                                .Audiovizual:hover p, .Audiovizual:hover button {
+                                #Audiovizual:hover p, #Audiovizual:hover button {
                                     display: block;
                                 }
-                                .Audiovizual button {
+                                #Audiovizual button {
                                   position: absolute; 
                                   bottom: 30px; 
-                                  left: 70%;
+                                  left: 50%;
                                   transform: translateX(-50%);
                               }
-                                  .Websites{
+                              #Websites{
+                                padding: 10px;
+                                padding-bottom: 80px; /* Pevný spodní padding */
                                     padding-left: 0px;
                                     padding-right: 0px;
                                     width: 100%;
@@ -698,23 +875,27 @@ div{
                                     color: white;
                                     transition: 0.5s;
                                     position: relative;
+                                    overflow: hidden; /* Zabrání přetečení obsahu */
                                   }
-                                  .Websites p, .Websites button {
+                                  #Websites p, #Websites button {
                                     display: none;
                                 }
-                                    .Websites:hover{
-                                      width: 100%;
+                                #Websites:hover{
+                                  padding-top: 20px;
+                                  padding-bottom: 150px; /* Pevný spodní padding */
                                     }
-                                    .Websites:hover p, .Websites:hover button {
+                                    #Websites:hover p, #Websites:hover button {
                                       display: block;
                                   }
-                                  .Websites button {
+                                  #Websites button {
                                     position: absolute; 
                                     bottom: 30px; 
-                                    left: 70%; 
+                                    left: 50%; 
                                     transform: translateX(-50%);
                                 }
-                                  .Others{
+                                #Others{
+                                  padding: 10px;
+                                  padding-bottom: 80px; /* Pevný spodní padding */
                                     padding-left: 0px;
                                     padding-right: 0px;
                                     width: 100%;
@@ -726,49 +907,47 @@ div{
                                     flex-direction: none;
                                     align-items: none;
                                   }
-                                  .Others p, .Others button {
+                                  #Others p, #Others button {
                                     display: none;
                                 }
-                                .Others button {
+                                #Others button {
                                   position: absolute; 
                                   bottom: 30px; 
-                                  left: 70%; 
+                                  left: 50%; 
                                   transform: translateX(-50%);
                               }
-                                    .Others:hover{
-                                      width: 100%;
+                              #Others:hover{
+                                padding-top: 20px;
+                                padding-bottom: 150px; /* Pevný spodní padding */
                                     }
-                                    .Others:hover p, .Others:hover button {
+                                    #Others:hover p, #Others:hover button {
                                       display: block;
                                   }
                                   
-#Contact {
+                    #Contact {
                                     display: flex;
                                     flex-direction: column;
-                                    align-items: center;
-                                    padding: 40px;
-                                    margin-top: 100px;
-                                    min-height: 40vh;
-                                    max-height: 40vh;
                                   }
-                                  
                                   #Contact h1 {
                                     text-align: center;
-                                    margin-bottom: 20px;
                                   }
-                                  
-                                  .Socials {
+                                  .Sites{
                                     display: flex;
-                                    justify-content: space-around;
                                     width: 100%;
-                                    height: 50vh;
-                                    margin-bottom: 0px;
+                                    gap: 100px;
+                                    align-self: center;
+                                  }
+                                  .Socials {
+                                    justify-content: space-around;
+                                    align-self: center;
+                                    width: 50%;
+                                    height: 50%;
+                                    margin-bottom: 30px;
                                   }
                                   .Socials svg{
-                            
                                     margin-bottom: 10px;
-                                    width: 50px; /* Zvýšení šířky SVG ikon */
-                                    height: 50px; /* Zvýšení výšky SVG ikon */
+                                    width: 20px; /* Zvýšení šířky SVG ikon */
+                                    height: 20px; /* Zvýšení výšky SVG ikon */
                                     fill: white;
                                   }
                                   .Socials a {
@@ -780,11 +959,12 @@ div{
                                     flex-direction: column;
                                     align-items: center;
                                     justify-content: center;
+                                    margin-top: 50px;
+                                    margin-bottom: 50px;
                                     border-radius: 50%;
-                                    width: 20vh;
-                                    height: 1vh;
+                                    width: 150px;
+                                    height: 150px;
                                     color: white;
-                                    padding: 0px;
                                     transition: background-color 0.3s ease;
                                   }
                             
@@ -803,25 +983,22 @@ div{
                                   .Socials a#Github div:hover {
                                     background-color: transparent;
                                   }
-                            
-                                  
                                   .Socials p {
                                     margin: 0;
                                   }
                                   
                                   .Other {
-                                    display: grid;
-                                    flex-direction: none;
-                                    align-items: none;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
                                     background-color: #333;
-                                    width: 100%;
-                                    padding: 40px;
+                                    width: 70%;
+                                    padding-top: 200px;
+                                    padding-bottom: 200px;
                                     color: white;
-                                    margin-top: none;
                                   }
                                   
                                   .Other div {
-                                    margin-bottom: 10px;
                                     text-align: center;
                                   }
                                   
