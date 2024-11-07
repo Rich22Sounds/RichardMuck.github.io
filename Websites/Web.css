@@ -1,14 +1,84 @@
 body{
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
     font-size: 25px;
     background-image: url(GraphB.svg);
-    background-color: white;
+    background-color: whitesmoke;
     font-family: Cambria,Georgia,serif;
     color: black;
 }
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Skrytí overlay */
+  .loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Kontejner pro zvukovou vlnu */
+  .wave-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Styl pro jednotlivé sloupce vlny */
+  .wave-bar {
+    border-radius: 25px;
+    align-self: center;
+    width: 10px;
+    height: 100%;
+    background-color: crimson;
+    animation: wave-animation 1.2s ease-in-out infinite;
+  }
+  
+  /* Animace pro zvukovou vlnu */
+  @keyframes wave-animation {
+    0%, 100% {
+        height: 20%;
+    }
+    50% {
+        height: 100%;
+    }
+  }
+  
+  /* Stupňování animace pro každý sloupec, aby se vlny lišily ve výšce */
+  .wave-bar:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .wave-bar:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .wave-bar:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .wave-bar:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .wave-bar:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+
+
 /*Navigace*/
 nav {
     background-color: transparent;
-    color: white;
+    color: whitesmoke;
     padding: 0;
     position: fixed;
     width: 100%;
@@ -18,12 +88,12 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: whitesmoke;
     border-bottom: 2px solid #333;
 }
 .logo {
     display: block;
-    color: white;
+    color: whitesmoke;
     background:#333;
     font-size: 1.5em;
     text-decoration: none;
@@ -95,10 +165,7 @@ section{
     min-height: 100vh;
     max-height: 100vh;
 }
-div{
-    min-height: 100%;
-    max-height: 100%;
-}
+
 p{
     padding-left: 60px;
 }
@@ -112,16 +179,20 @@ h2{
     padding-left: 40px;
     font-size: 1.5em;
 }
-strong{
-    color: red;
+span{
+    font-style: oblique;
+    font-weight: bold;
+    color: crimson;
 }
 .button{
-    border: 2px solid #dadada;
+    border: 5px solid #dadada;
+    border-radius: 15px;
     background: transparent;
     width: 50%;
     padding: 30px;
     color: #111;
     font-size: 1em;
+    font-weight: 600;
     transition: 0.5s;
     font-family: Cambria,Georgia,serif;
     margin: 5px;
@@ -141,12 +212,13 @@ strong{
 #Home{
     margin-top: 0px;
     text-align: center;
+    align-self: center;
 }
 /*Vizuální prvky na Homepage*/
 #Home h1{
     color: #333;
-    padding-left: 20px;
-    font-size: 2em;
+    letter-spacing: 10px;
+    font-size: 4em;
 }
 #Home h2{
     padding-left: 40px;
@@ -157,7 +229,6 @@ strong{
 }
 .Intro{
     color: #333;
-    background-color: rgba(254, 254, 254, 0.3);
     padding: 30px;
     text-align: center;
     align-self: center;
@@ -167,6 +238,46 @@ strong{
    /* Přidána vlastnost */
     align-items: center;
    /* Přidána vlastnost */
+}
+.Intro h1{
+    letter-spacing: 5px;
+    font-size: 800px;
+}
+.nav-intro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.nav-intro a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+    border: #333 2px solid;
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.5s;
+
+}
+.nav-intro a:hover{
+    transition: 0.5s;
+    text-decoration: none;
+    font-weight: 600;
+    color: crimson;
+    border: crimson 2px solid;
+    border-radius: 15px;
+    padding: 30px 60px 30px 60px;
+}
+.banner{
+    border-left: crimson 20px dotted;
+    border-right: crimson 25px solid;
+    display: flex;
+    align-items: center;
+    gap: 30vw;
+    justify-content: center;
+    padding: 60px;
+    color: white;
+    background-color: #333;
 }
 #LogoRM{
     width: 40vh;
