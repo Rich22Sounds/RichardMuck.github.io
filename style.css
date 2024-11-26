@@ -1,0 +1,1813 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    background-color: #121212;
+    font-family: Cambria, serif;
+  }
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #121212;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Skrytí overlay */
+  .loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Kontejner pro zvukovou vlnu */
+  .wave-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Styl pro jednotlivé sloupce vlny */
+  .wave-bar {
+    border-radius: 25px;
+    align-self: center;
+    width: 10px;
+    height: 100%;
+    background-color: crimson;
+    animation: wave-animation 1.2s ease-in-out infinite;
+  }
+  
+  /* Animace pro zvukovou vlnu */
+  @keyframes wave-animation {
+    0%, 100% {
+        height: 20%;
+    }
+    50% {
+        height: 100%;
+    }
+  }
+  
+  /* Stupňování animace pro každý sloupec, aby se vlny lišily ve výšce */
+  .wave-bar:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .wave-bar:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .wave-bar:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .wave-bar:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .wave-bar:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+  
+  nav {
+    background-color: transparent;
+    color: #fff;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #111;
+    border-bottom: 2px solid crimson;
+  }
+  
+  .logo {
+    display: block;
+    padding-left: 10%;
+    padding-right: 30%;
+    width: 100%;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+  }
+  .logo img{
+    height: 35px;
+  }
+
+  .nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 60px;
+  }
+  
+  .nav li {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav li:first-child {
+    border-left: none;
+  }
+  
+  .nav li:last-child {
+    border-right: none;
+  }
+  
+  .nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    transition: background 0.5s, color 0.5s;
+  }
+  
+  .nav a:hover {
+    color: crimson;
+    transition: 0.5s;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  .overlay {
+    display: none;
+  }
+  
+  .hamburger .bar1, .hamburger .bar2, .hamburger .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  
+  section{
+    margin-top: 100px;
+    min-height: 750px;
+    padding-top: 9vh;
+    margin-bottom: 400px;
+  }
+  .invisible{
+    opacity: 0;
+    transform: translateY(30px); /* mírný posun dolů */
+      transition: opacity 1s ease-out, transform 0.5s ease-out;
+  }
+  .visible{
+    opacity: 1;
+    transform: translateY(0); /* vynulování posunu */
+  }
+  h1{
+    margin-top: 0;
+    color: crimson;
+    font-size: 70px;
+    letter-spacing: 5px;
+  }
+  h2{
+    margin: 0;
+    text-transform: uppercase;
+    color: #ddd;
+    font-size: 30px;
+  }
+  
+  p{
+    padding-left: 30px;
+  }
+  strong{
+    color: crimson;
+  }
+  
+  .button {
+    position: relative;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    text-decoration: none;
+    width: 50%;
+    padding: 30px;
+    color: white;
+    font-size: 25px;
+    transition: 0.5s;
+    margin: 5px auto;
+    display: block;
+    text-align: center;
+    overflow: hidden; /* Potřebné pro animaci hran */
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    background-color: crimson;
+    transform: scale(1.1);
+  }
+  
+  .border-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    box-sizing: border-box;
+    animation: border-loop 2s linear infinite;
+    pointer-events: none; /* Zamezí interakci s animací */
+  }
+  
+  @keyframes border-loop {
+    0% {
+      border-color: transparent;
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
+    25% {
+      border-color: crimson;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    }
+    50% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%);
+    }
+    75% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+
+
+
+  
+  #Home{
+    margin-top: 0px;
+      }
+      #Home h1{
+        color: crimson;
+        font-size: 90px;
+        letter-spacing: 5px;
+        margin: 0;
+      }
+      #Home h2{
+        text-transform: none;
+      }
+      #Home .button{
+        margin-top: 100px;
+      }
+  
+      .Introduction{
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+      }
+      #Welcome{
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        color: white;
+        padding-top: 100px;
+        padding-left: 100px;
+      }
+      #text {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+  
+    }
+    .profile-container {
+        width: 50%;
+
+        margin-right: 50px;
+        position: relative;
+        
+      }
+  #AboutMe{
+    background-image: url("Group\ 35.svg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            height: 1000px;
+          }
+          .Myself{
+            margin: 70px;
+            display: flex;
+            align-items: center;
+            justify-content:space-around;
+          }
+          .Myself img{
+            width: 40%;
+          }
+          #Story{
+            text-align: end;
+            color: white;
+            width: 50%;
+          }
+  
+  
+  
+  #Programs{
+    background-image: url("Group\ 36.svg");
+    background-repeat: no-repeat;
+    
+    display: flex;
+            align-items: center;
+            justify-content:space-between;
+    }
+    #Programs h1, #Programs h2{
+        padding-left: 200px;
+      align-self: center;
+      }
+      .tab-decor{
+        background-image: url("Group\ 38.svg");
+        background-repeat: no-repeat;
+        border-radius: 35px;
+        margin-right: 200px;
+        padding: 5px 5px 5px 5px;
+      }
+      .tab-container {
+        border-radius: 30px;
+        width: 700px;
+        height: 600px;
+        color: #ddd;
+        background-color: #000;
+      }
+      .tab img{
+        height: 150px;
+      }
+      
+      .tab-header {
+        display: flex;
+      }
+      
+      .tab-button {
+        font-family: Cambria, serif;
+        color: #fff;
+        flex: 1;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+        background: #1a1a1a;
+        border: none;
+        outline: none;
+        font-size: 30px;
+      }
+      
+      .tab-button.active {
+        border-radius: 30px;
+        background: #000;
+        font-weight: bold;
+      }
+      .tab-button:first-child, .tab-button:last-child {
+        border-radius: 30px 0 0 0;
+      }
+      .tab-button:last-child {
+        border-radius: 0 30px 0 0;
+      }
+      
+      .tab-content {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+      
+      .tab {
+        display: none;
+      }
+      
+      .tab.active {
+        display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+      }
+  
+  
+  
+  #Works{
+        }
+        #Works .heading{
+          background-image: url("Group\ 41.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+
+        }
+        #Works h1, #Works h2{
+          background-position: 0 40px;
+          text-align: center;
+                }
+      .Work-links{
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+      }
+  
+  .work-decor1{
+    background-image: url("Rectangle\ 6.svg");
+        background-repeat: no-repeat;
+        background-position: 0 50px;
+        border-radius: 20px;
+        padding: 0px 0px 5px 5px;
+  }
+  .work-decor2{
+    background-image: url("Rectangle\ 7.svg");
+        background-repeat: no-repeat;
+        background-position: 180px 0;
+        border-radius: 20px;
+        padding: 5px 5px 0px 0px;
+  }
+  .work-decor{
+        background-position: 0 50px;
+        border-radius: 20px;
+        padding: 5px 5px 5px 5px;
+  }
+  #Audiovizual {
+      background: url(Audio.gif);
+      background-position: center;
+  }
+  
+  #Websites {
+      background: url(Cursor.gif);
+      background-position: center;
+  }
+  
+  #Others {
+      background: url(Certif.gif);
+      background-position: center;
+  }
+  #Audiovizual, #Websites, #Others {
+    padding: 20px;
+    width: 25vw;
+    min-height: 50vh; /* Dostatečná výška pro přesné centrování */
+    color: white;
+    position: relative; /* Pozicování relativní vůči divu */
+    overflow: hidden; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    filter: grayscale(100);
+  }
+  
+  #Audiovizual h1, #Websites h1, #Others h1 {
+    font-size: 40px; /* Větší nadpis */
+    margin: 0;
+    color: #ddd;
+    position: absolute; /* Absolutní pozicování */
+    top: 50%; /* Vertikálně uprostřed */
+    left: 50%; /* Horizontálně uprostřed */
+    transform: translate(-50%, -50%); /* Přesné vycentrování */
+    transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+    text-align: center;
+  }
+  
+  #Audiovizual:hover h1, #Websites:hover h1, #Others:hover h1 {
+    transform: translate(-50%, -150px); /* Přesun nadpisu nahoru při hoveru */
+  }
+  
+  #Audiovizual, #Websites, #Others {
+    display: flex; /* Použijeme flexbox pro centrování obsahu */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #Audiovizual:hover, #Websites:hover, #Others:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    filter: grayscale(0);
+  }
+  
+  #Audiovizual p, #Websites p, #Others p, 
+  #Audiovizual .button, #Websites .button, #Others .button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s; /* Plynulé zobrazení obsahu */
+  }
+  
+  #Audiovizual:hover p, #Websites:hover p, #Others:hover p,
+  #Audiovizual:hover .button, #Websites:hover .button, #Others:hover .button {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  #Audiovizual .button, #Websites .button, #Others .button {
+    position: absolute; 
+    bottom: 100px;
+    transition: 0.3s;
+  }
+  
+  
+  
+  #Contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #Contact .heading{
+    text-align: center;
+    width: 100%;
+    background-image: url("Group\ 42.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Nadpis sekce */
+  #Contact h3 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+  }
+  #Contact p {
+    font-size: 30px;
+  }
+  
+  /* Flexbox layout pro různé stránky (webové a sociální) */
+  .Sites {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+  }
+  
+  /* Kontejnery pro sociální sítě */
+  .Socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  /* Ikony sociálních sítí */
+  .Socials svg {
+    width: 50px;
+    height: 50px;
+    fill: white;
+    transition: transform 0.3s ease, fill 0.3s ease;
+  }
+  
+  /* Odkazy a ikonové boxy */
+  .Socials a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .Socials a div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: crimson; /* LinkedIn default */
+    color: white;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styl pro sekci "Other" */
+  .Other {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    padding: 60px 40px;
+    color: white;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Other h3 {
+    font-size: 40px;
+    color: crimson;
+    font-weight: bold;
+  }
+  
+  .Other p {
+    font-size: 30px;
+    line-height: 1.6;
+    color: #ddd;
+    text-align: center;
+  }
+  footer{
+    color: #ddd;
+
+    background-color: #1a1a1a;
+    padding: 80px;
+    text-align: center;
+  }
+        @media only screen and (max-width: 1150px) {
+          body{
+            font-size: 20px;
+          }
+  #Home {
+        }
+        #Home h1{
+          color: crimson;
+          font-size: 80px;
+          letter-spacing: 5px;
+          margin: 0;
+        }
+        #Home h2{
+          text-transform: none;
+        }
+        #Home .button{
+          margin-top: 50px;
+        }
+        .Introduction{
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        #Welcome{
+          justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        color: white;
+        padding-top: 50px;
+        padding-left: 0px;
+
+        }
+        #text {
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center;
+    
+      }
+      .profile-container {
+        width: 60%;
+        padding-top: 50px;
+        margin-right: 0px;
+        position: relative;
+        
+      }
+  #AboutMe{
+    display: grid;
+    
+                  }
+                  .Myself{
+                    margin: 70px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column-reverse;
+                  }
+                  #Story{
+                    color: white;
+                    width: 75%;
+                    padding: 50px;
+                  }
+
+
+  #Programs{   
+    background-image: none;         
+    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+    }
+    #Programs h1, #Programs h2{
+      padding-left: 0px;
+    align-self: center;
+    text-align: center;
+    }
+    #Programs .heading{
+      padding: 400px 0 50px 0;
+      margin-bottom: 100px;
+      width: 100%;
+      background-image: url("Group\ 40.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+    }
+    .tab-decor{
+      background-image: url("Group\ 38.svg");
+      background-repeat: no-repeat;
+      border-radius: 35px;
+      margin-right: 0px;
+      padding: 5px 5px 5px 5px;
+    }
+    .tab-container {
+      border-radius: 30px;
+      width: 700px;
+      height: 600px;
+      color: #ddd;
+      background-color: #000;
+    }
+    .tab-content img{
+      height: 100px;
+    }
+    
+    .tab-header {
+      display: flex;
+    }
+    
+    .tab-button {
+      font-family: Cambria, serif;
+      color: #fff;
+      flex: 1;
+      padding: 10px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: #1a1a1a;
+      border: none;
+      outline: none;
+      font-size: 30px;
+    }
+    
+    .tab-button.active {
+      border-radius: 30px;
+      background: #000;
+      font-weight: bold;
+    }
+    .tab-button:first-child, .tab-button:last-child {
+      border-radius: 30px 0 0 0;
+    }
+    .tab-button:last-child {
+      border-radius: 0 30px 0 0;
+    }
+    
+    .tab-content {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .tab {
+      display: none;
+    }
+    
+    .tab.active {
+
+    }
+
+  #Works{
+                                    }
+
+                                    #Works .heading{
+          background-image: url("Group\ 41.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        #Works h1, #Works h2{
+          background-position: 0 40px;
+          text-align: center;
+                }
+      .Work-links{
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+      }
+                              
+                              #Audiovizual {
+                                  background: url(Audio.gif);
+                                  background-position: center;
+                              }
+                              
+                              #Websites {
+                                  background: url(Cursor.gif);
+                                  background-position: center;
+                              }
+                              
+                              #Others {
+                                  background: url(Certif.gif);
+                                  background-position: center;
+                              }
+                              #Audiovizual, #Websites, #Others {
+                                padding: 20px;
+                                width: 27vw;
+                                min-height: 50vh; /* Dostatečná výška pro přesné centrování */
+                                color: white;
+                                position: relative; /* Pozicování relativní vůči divu */
+                                overflow: hidden; 
+                                background-size: cover;
+                                background-position: center;
+                                border-radius: 15px;
+                                transition: transform 0.5s ease, box-shadow 0.5s ease;
+                                filter: grayscale(100);
+                              }
+                              
+                              #Audiovizual h1, #Websites h1, #Others h1 {
+                                font-size: 1.6em; /* Větší nadpis */
+                                margin: 0;
+                                position: absolute; /* Absolutní pozicování */
+                                top: 50%; /* Vertikálně uprostřed */
+                                left: 50%; /* Horizontálně uprostřed */
+                                transform: translate(-50%, -50%); /* Přesné vycentrování */
+                                transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+                                text-align: center;
+                              }
+                              
+                              #Audiovizual:hover h1, #Websites:hover h1, #Others:hover h1 {
+                                transform: translate(-50%, -150px); /* Přesun nadpisu nahoru při hoveru */
+                              }
+                              
+                              #Audiovizual, #Websites, #Others {
+                                display: flex; /* Použijeme flexbox pro centrování obsahu */
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                              }
+                              
+                              #Audiovizual:hover, #Websites:hover, #Others:hover {
+                                transform: scale(1.05);
+                                filter: grayscale(0);
+                              }
+                              
+                              #Audiovizual p, #Websites p, #Others p, 
+                              #Audiovizual .button, #Websites .button, #Others .button {
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: opacity 0.5s, visibility 0.5s; /* Plynulé zobrazení obsahu */
+                              }
+                              
+                              #Audiovizual:hover p, #Websites:hover p, #Others:hover p,
+                              #Audiovizual:hover .button, #Websites:hover .button, #Others:hover .button {
+                                opacity: 1;
+                                visibility: visible;
+                              }
+                              
+                              #Audiovizual .button, #Websites .button, #Others .button {
+                                position: absolute; 
+                                bottom: 30px; 
+                                left: 50%; 
+                                transform: translateX(-50%);
+                              }
+                              #Contact {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                              }
+                              #Contact .heading{
+                                text-align: center;
+
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                              }
+                              
+                              /* Nadpis sekce */
+                              #Contact h3 {
+                                font-size: 35px;
+                                text-align: center;
+                                font-weight: bold;
+                              }
+                              #Contact p {
+                                font-size: 30px;
+                              }
+                              
+                              /* Flexbox layout pro různé stránky (webové a sociální) */
+                              .Sites {
+                                display: flex;
+                                justify-content: center;
+                                flex-wrap: wrap;
+                                gap: 50px;
+                                width: 100%;
+                              }
+                              
+                              /* Kontejnery pro sociální sítě */
+                              .Socials {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 40px;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                max-width: 800px;
+                              }
+                              
+                              /* Ikony sociálních sítí */
+                              .Socials svg {
+                                width: 50px;
+                                height: 50px;
+                                fill: white;
+                                transition: transform 0.3s ease, fill 0.3s ease;
+                              }
+                              
+                              /* Odkazy a ikonové boxy */
+                              .Socials a {
+                                text-decoration: none;
+                                color: inherit;
+                              }
+                              
+                              .Socials a div {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 50%;
+                                width: 120px;
+                                height: 120px;
+                                background-color: crimson; /* LinkedIn default */
+                                color: white;
+                                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                              }
+                            
+                              
+                              /* Popis u sociálních ikon */
+                              .Socials p {
+                                margin-top: 10px;
+                                font-size: 1rem;
+                                color: #555;
+                              }
+                              
+                              /* Styl pro sekci "Other" */
+                              .Other {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content:space-around;
+                                background-color: #1a1a1a;
+                                border-radius: 15px;
+                                padding: 60px 40px;
+                                color: white;
+                                width: 80%;
+                                max-width: 1000px;
+                                margin-top: 50px;
+                              }
+                              
+                              
+                              .Other p {
+                                font-size: 30px;
+                                line-height: 0;
+                                color: #ddd;
+                                text-align: center;
+                              }
+                              footer{
+                                color: #ddd;
+                                margin-top: 50px;
+                                background-color: #1a1a1a;
+                                padding: 80px;
+                                text-align: center;
+                              }
+      
+      }
+  
+  
+  
+  
+  
+  @media only screen and (max-width: 900px) {
+        body{
+          font-size: 20px;
+        }
+        .nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+      }
+      .logo{
+        padding-left: 20%;
+        padding-right: 20%;
+      }
+      .nav li {
+          text-align: center;
+          width: 100%;
+          border-left: none;
+          border-right: none;
+          border-top: 2px solid crimson;
+          border-bottom: 2px solid crimson;
+      }
+      .hamburger {
+        display: inline-block;
+        cursor: pointer;
+      }
+      
+      .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+      
+      .change .bar1 {
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+      
+      .change .bar2 {
+        opacity: 0;
+      }
+      
+      .change .bar3 {
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+      .overlay {
+        display: none;
+        height: 500%; /* Výška na 100% */
+        width: 200%; /* Šířka na 100% */
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9); /* Poloprůhledné pozadí */
+        overflow-x: hidden; /* Skrytí vodorovného scrollbar */
+        overflow-y: hidden; /* Skrytí svislého scrollbar */
+        transition: 0.5s;
+        z-index: 1000;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 0%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: 'Spectral', serif;
+        color: #fff;
+        display: block;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #818181;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+      }
+
+  #Home {
+      }
+      #Home h1{
+        color: crimson;
+        font-size: 90px;
+        letter-spacing: 5px;
+        margin: 0;
+      }
+      #Home h2{
+        text-transform: none;
+      }
+      #Home .button{
+
+      }
+      .Introduction{
+        display: flex;
+
+
+      }
+      #Welcome{
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        color: white;
+      }
+      #text {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+  
+    }
+  #AboutMe{
+  display: grid;
+  
+                }
+                .Myself{
+
+                }
+                #Story{
+                  color: white;
+                  width: 75%;
+                  padding: 10px;
+                  padding-bottom: 110px;
+                }
+
+  #Programs{               
+
+  }
+  #Programs h1, #Programs h2{
+    padding-left: 0px;
+  align-self: center;
+  text-align: center;
+  }
+    .tab-decor{
+      background-image: url("Group\ 38.svg");
+      background-repeat: no-repeat;
+      border-radius: 35px;
+      margin-right: 0px;
+      padding: 5px 5px 5px 5px;
+    }
+    .tab-container {
+      border-radius: 30px;
+      width: 700px;
+      height: 600px;
+      color: #ddd;
+      background-color: #000;
+    }
+    .tab-content img{
+      height: 100px;
+    }
+    
+    .tab-header {
+      display: flex;
+    }
+    
+    .tab-button {
+      font-family: Cambria, serif;
+      color: #fff;
+      flex: 1;
+      padding: 10px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: #1a1a1a;
+      border: none;
+      outline: none;
+      font-size: 30px;
+    }
+    
+    .tab-button.active {
+      border-radius: 30px;
+      background: #000;
+      font-weight: bold;
+    }
+    .tab-button:first-child, .tab-button:last-child {
+      border-radius: 30px 0 0 0;
+    }
+    .tab-button:last-child {
+      border-radius: 0 30px 0 0;
+    }
+    
+    .tab-content {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .tab {
+      display: none;
+    }
+    
+    .tab.active {
+      display: block;
+    }
+  #Works{
+                            display: grid;
+                            align-items: center;
+                                  }
+                                  #Works .heading{
+                                    background-image:none;
+
+                                  }
+                                  #Works h1, #Works h2{
+                                    background-position: 0 40px;
+                                    text-align: center;
+                                          }
+                                .Work-links{
+                                  display: flex;
+                                  align-items: center;
+                                  justify-content:space-around;
+                                  width: 97vw;
+                                }
+                            .work-decor2{
+    background-image: url("Rectangle\ 7.svg");
+        background-repeat: no-repeat;
+        background-position: 0px 0;
+        border-radius: 20px;
+        padding: 5px 5px 0px 0px;
+  }
+                            #Audiovizual {
+                                background: url(Audio.gif);
+                                background-position: center;
+                            }
+                            
+                            #Websites {
+                                background: url(Cursor.gif);
+                                background-position: center;
+                            }
+                            
+                            #Others {
+                                background: url(Certif.gif);
+                                background-position: center;
+                            }
+                            #Audiovizual, #Websites, #Others {
+                              padding: 20px;
+                              width: 25vw;
+                              min-height: 50vh; /* Dostatečná výška pro přesné centrování */
+                              color: white;
+                              position: relative; /* Pozicování relativní vůči divu */
+                              overflow: hidden; 
+                              background-size: cover;
+                              background-position: center;
+                              border-radius: 15px;
+                              transition: transform 0.5s ease, box-shadow 0.5s ease;
+                              filter: grayscale(100);
+                            }
+                            
+                            #Audiovizual h1, #Websites h1, #Others h1 {
+                              font-size: 1.4em; /* Větší nadpis */
+                              margin: 0;
+                              position: absolute; /* Absolutní pozicování */
+                              top: 50%; /* Vertikálně uprostřed */
+                              left: 50%; /* Horizontálně uprostřed */
+                              transform: translate(-50%, -50%); /* Přesné vycentrování */
+                              transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+                              text-align: center;
+                            }
+                            
+                            #Audiovizual:hover h1, #Websites:hover h1, #Others:hover h1 {
+                              transform: translate(-50%, -150px); /* Přesun nadpisu nahoru při hoveru */
+                            }
+                            
+                            #Audiovizual, #Websites, #Others {
+                              display: flex; /* Použijeme flexbox pro centrování obsahu */
+                              flex-direction: column;
+                              justify-content: center;
+                              align-items: center;
+                            }
+                            
+                            #Audiovizual:hover, #Websites:hover, #Others:hover {
+                              transform: scale(1.05);
+                              filter: grayscale(0);
+                            }
+                            
+                            #Audiovizual p, #Websites p, #Others p, 
+                            #Audiovizual .button, #Websites .button, #Others .button {
+                              opacity: 0;
+                              visibility: hidden;
+                              transition: opacity 0.5s, visibility 0.5s; /* Plynulé zobrazení obsahu */
+                            }
+                            
+                            #Audiovizual:hover p, #Websites:hover p, #Others:hover p,
+                            #Audiovizual:hover .button, #Websites:hover .button, #Others:hover .button {
+                              opacity: 1;
+                              visibility: visible;
+                            }
+                            
+                            #Audiovizual .button, #Websites .button, #Others .button {
+                              position: absolute; 
+                              bottom: 30px; 
+                              left: 50%; 
+                              transform: translateX(-50%);
+                            }
+                                  
+                            #Contact {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                            }
+                            #Contact .heading{
+                              background-image: none;
+                            }
+                            
+                            /* Nadpis sekce */
+                            #Contact h3 {
+                              font-size: 35px;
+                              text-align: center;
+                              font-weight: bold;
+                            }
+                            #Contact p {
+                              font-size: 30px;
+                            }
+                            
+                            /* Flexbox layout pro různé stránky (webové a sociální) */
+                            .Sites {
+                              display: flex;
+                              justify-content: center;
+                              flex-wrap: wrap;
+                              gap: 50px;
+                              width: 100%;
+                            }
+                            
+                            /* Kontejnery pro sociální sítě */
+                            .Socials {
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              gap: 40px;
+                              flex-wrap: wrap;
+                              width: 100%;
+                              max-width: 800px;
+                            }
+                            
+                            /* Ikony sociálních sítí */
+                            .Socials svg {
+                              width: 50px;
+                              height: 50px;
+                              fill: white;
+                              transition: transform 0.3s ease, fill 0.3s ease;
+                            }
+                            
+                            /* Odkazy a ikonové boxy */
+                            .Socials a {
+                              text-decoration: none;
+                              color: inherit;
+                            }
+                            
+                            .Socials a div {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                              justify-content: center;
+                              border-radius: 50%;
+                              width: 120px;
+                              height: 120px;
+                              background-color: crimson; /* LinkedIn default */
+                              color: white;
+                              transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                            }
+                          
+                            
+                            /* Popis u sociálních ikon */
+                            .Socials p {
+                              margin-top: 10px;
+                              font-size: 1rem;
+                              color: #555;
+                            }
+                            
+                            /* Styl pro sekci "Other" */
+                            .Other {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                              justify-content:space-around;
+                              background-color: #1a1a1a;
+                              border-radius: 15px;
+                              padding: 60px 40px;
+                              color: white;
+                              width: 80%;
+                              max-width: 1000px;
+                              margin-top: 50px;
+                            }
+                            
+                            
+                            .Other p {
+                              font-size: 30px;
+                              line-height: 0;
+                              color: #ddd;
+                              text-align: center;
+                            }
+                            footer{
+                              color: #ddd;
+                              margin-top: 50px;
+                              background-color: #1a1a1a;
+                              padding: 80px;
+                              text-align: center;
+                            }
+}
+@media only screen and (max-width: 600px) {
+  body{
+    font-size: 20px;
+  }
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logo{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.nav li {
+    text-align: center;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid crimson;
+    border-bottom: 2px solid crimson;
+}
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+.overlay {
+  display: none;
+  height: 500%; /* Výška na 100% */
+  width: 200%; /* Šířka na 100% */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); /* Poloprůhledné pozadí */
+  overflow-x: hidden; /* Skrytí vodorovného scrollbar */
+  overflow-y: hidden; /* Skrytí svislého scrollbar */
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+.overlay-content {
+  position: relative;
+  top: 0%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Spectral', serif;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #818181;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+#Home {
+}
+#Home h1{
+  color: crimson;
+  font-size: 90px;
+  letter-spacing: 5px;
+  margin: 0;
+}
+#Home h2{
+  text-transform: none;
+}
+#Home .button{
+
+}
+.Introduction{
+  display: flex;
+
+
+}
+#Welcome{
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  color: white;
+}
+#text {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+
+}
+#AboutMe{
+  display: grid;
+  height: 1250px;
+                }
+                .Myself{
+                  margin: 70px;
+                  display: flex;
+                  align-items: center;
+                  flex-direction: column-reverse;
+                }
+                .Myself img{
+                  width: 100%;
+                }
+                #Story{
+                  color: white;
+                  width: 100%;
+                }
+
+#Programs{               
+
+}
+#Programs h1, #Programs h2{
+padding-left: 0px;
+align-self: center;
+text-align: center;
+}
+.tab-decor{
+background-image: url("Group\ 38.svg");
+background-repeat: no-repeat;
+border-radius: 35px;
+margin-right: 0px;
+padding: 5px 5px 5px 5px;
+}
+.tab-container {
+border-radius: 30px;
+width: 400px;
+height: 600px;
+color: #ddd;
+background-color: #000;
+}
+.tab-content img{
+height: 80px;
+}
+
+.tab-header {
+display: flex;
+flex-direction: column;
+}
+
+.tab-button {
+font-family: Cambria, serif;
+color: #fff;
+flex: 1;
+padding: 10px 20px;
+text-align: center;
+cursor: pointer;
+background: #1a1a1a;
+border: none;
+outline: none;
+font-size: 25px;
+}
+
+.tab-button.active {
+border-radius: 30px;
+background: #000;
+font-weight: bold;
+}
+.tab-button:first-child, .tab-button:last-child {
+border-radius: 30px 30px 0 0;
+}
+.tab-button:last-child {
+border-radius: 0 0 0 0;
+}
+
+.tab-content {
+display: flex;
+justify-content: center;
+padding: 20px;
+}
+
+.tab {
+display: none;
+}
+
+.tab.active {
+display: block;
+}
+#Works{
+                      display: grid;
+                      align-items: center;
+                            }
+                            #Works .heading{
+
+                            }
+                            #Works h1, #Works h2{
+                              background-position: 0 40px;
+                              text-align: center;
+                                    }
+                          .Work-links{
+                            display: flex;
+                            align-items: center;
+                            justify-content:center;
+                            width: 97vw;
+                            flex-direction: column;
+                          }
+                          .work-decor1{
+                            background-image: url("Rectangle\ 7.svg");
+                              background-repeat: no-repeat;
+                              background-position: 100px;
+                              border-radius: 20px;
+                              padding: 5px 5px 0px 0px;
+                            }
+                      .work-decor2{
+background-image: url("Rectangle\ 7.svg");
+  background-repeat: no-repeat;
+  background-position: 100px;
+  border-radius: 20px;
+  padding: 5px 5px 0px 0px;
+}
+                      #Audiovizual {
+                          background: url(Audio.gif);
+                          background-position: center;
+                      }
+                      
+                      #Websites {
+                          background: url(Cursor.gif);
+                          background-position: center;
+                      }
+                      
+                      #Others {
+                          background: url(Certif.gif);
+                          background-position: center;
+                      }
+                      #Audiovizual, #Websites, #Others {
+                        padding: 20px;
+                        width: 80vw;
+                        min-height: 20vh; /* Dostatečná výška pro přesné centrování */
+                        color: white;
+                        position: relative; /* Pozicování relativní vůči divu */
+                        overflow: hidden; 
+                        background-size: cover;
+                        background-position: center;
+                        border-radius: 15px;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                        transition: transform 0.5s ease, box-shadow 0.5s ease;
+                        filter: grayscale(100);
+                      }
+                      
+                      #Audiovizual h1, #Websites h1, #Others h1 {
+                        font-size: 1.4em; /* Větší nadpis */
+                        margin: 0;
+                        position: absolute; /* Absolutní pozicování */
+                        top: 50%; /* Vertikálně uprostřed */
+                        left: 50%; /* Horizontálně uprostřed */
+                        transform: translate(-50%, -50%); /* Přesné vycentrování */
+                        transition: transform 0.5s ease, margin 0.5s ease; /* Animace přesunu nahoru */
+                        text-align: center;
+                      }
+                      
+                      #Audiovizual:hover h1, #Websites:hover h1, #Others:hover h1 {
+                        transition: 1s;
+                        display: none;
+                      }
+                      
+                      #Audiovizual, #Websites, #Others {
+                        display: flex; /* Použijeme flexbox pro centrování obsahu */
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                      }
+                      
+                      #Audiovizual:hover, #Websites:hover, #Others:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+                        filter: grayscale(0);
+                      }
+                      
+                      #Audiovizual p, #Websites p, #Others p, 
+                      #Audiovizual .button, #Websites .button, #Others .button {
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: opacity 0.5s, visibility 0.5s; /* Plynulé zobrazení obsahu */
+                      }
+                      
+                      #Audiovizual:hover p, #Websites:hover p, #Others:hover p,
+                      #Audiovizual:hover .button, #Websites:hover .button, #Others:hover .button {
+                        opacity: 1;
+                        visibility: visible;
+                      }
+                      
+                      #Audiovizual .button, #Websites .button, #Others .button {
+                        position: absolute; 
+                        bottom: 30px; 
+                        left: 50%; 
+                        transform: translateX(-50%);
+                      }
+                            
+                      #Contact {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                      }
+                      #Contact .heading{
+
+                      }
+                      
+                      /* Nadpis sekce */
+                      #Contact h3 {
+                        font-size: 35px;
+                        text-align: center;
+                        font-weight: bold;
+                      }
+                      #Contact p {
+                        font-size: 30px;
+                      }
+                      
+                      /* Flexbox layout pro různé stránky (webové a sociální) */
+                      .Sites {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        gap: 50px;
+                        width: 100%;
+                      }
+                      
+                      /* Kontejnery pro sociální sítě */
+                      .Socials {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 40px;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        max-width: 800px;
+                      }
+                      
+                      /* Ikony sociálních sítí */
+                      .Socials svg {
+                        width: 50px;
+                        height: 50px;
+                        fill: white;
+                        transition: transform 0.3s ease, fill 0.3s ease;
+                      }
+                      
+                      /* Odkazy a ikonové boxy */
+                      .Socials a {
+                        text-decoration: none;
+                        color: inherit;
+                      }
+                      
+                      .Socials a div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        width: 120px;
+                        height: 120px;
+                        background-color: crimson; /* LinkedIn default */
+                        color: white;
+                        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                      }
+                    
+                      
+                      /* Popis u sociálních ikon */
+                      .Socials p {
+                        margin-top: 10px;
+                        font-size: 1rem;
+                        color: #555;
+                      }
+                      
+                      /* Styl pro sekci "Other" */
+                      .Other {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content:space-around;
+                        background-color: #1a1a1a;
+                        border-radius: 15px;
+                        padding: 60px 40px;
+                        color: white;
+                        width: 80%;
+                        max-width: 1000px;
+                        margin-top: 50px;
+                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                      }
+                      
+                      
+                      .Other p {
+                        font-size: 30px;
+                        line-height: 0;
+                        color: #ddd;
+                        text-align: center;
+                      }
+                      footer{
+                        color: #ddd;
+                        margin-top: 50px;
+                        background-color: #1a1a1a;
+                        padding: 80px;
+                        text-align: center;
+                      }
+}
